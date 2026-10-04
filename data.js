@@ -238,7 +238,7 @@ const DATA=[
   "keywords": [
    "erityisasunnot"
   ],
-  "quote": "Rakennusala, jolle saa rakentaa erityisasuntoja (Byggnadsyta, där specialbostäder får byggas). Koulun, päiväkodin ja/tai erityisasunnot otetaan käyttöön siinä vaiheessa kun kaavaan merkitty koulu ja/tai erityisasunnot otetaan käyttöön.",
+  "quote": "Rakennusala, jolle saa rakentaa erityisasuntoja . Koulun, päiväkodin ja/tai erityisasunnot otetaan käyttöön siinä vaiheessa kun kaavaan merkitty koulu ja/tai erityisasunnot otetaan käyttöön.",
   "class": "candidate",
   "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/550/attachments/214",
   "source": "ocr"
@@ -316,7 +316,7 @@ const DATA=[
   "keywords": [
    "vanhustenpalvelut"
   ],
-  "quote": "ka eller stads- ons- eller ändringsarbeten som förstör fasader- Arkitektoniskt värdefull och for stadsbildens be- Nähtävillä MRA 27 § Nähtävillä MRA 30 § (1-5 §) hen liittyvine asuntoineen. sijoittaa vanhusten palvelukeskuksen sii- levien rakennusten korttelialue, johon saa Sosiaalitointa ja terveydenhuoltoa palve- (1-5 §) bostäder. vicecentral för äldre med därfill hörande polkupyöräpaikoja. littuja tiloja varten ei tarvitse rakentaa auto- ja Asemakaavaan merkityn kerrosalan lisäksi sal- 1 pp / 150 k-m². Polkupyöräpaikk",
+  "quote": "Sosiaalitoimen ja terveydenhuollon palvelevien rakennusten korttelialue, johon saa sijoittaa vanhusten palvelukeskuksen siihen liittyvine asuntoineen.",
   "class": "candidate",
   "pdf_url": "https://kartat.espoo.fi/documents/kaavamaaraykset/230133.pdf",
   "source": "wfs"
@@ -346,5 +346,57 @@ const DATA=[
   "class": "candidate",
   "pdf_url": "https://kartat.espoo.fi/documents/kaavamaaraykset/130140.pdf",
   "source": "wfs"
+ },
+ {
+  "city": "espoo",
+  "kaava": "510303",
+  "nimi": "Hansakallio, Muutos K. 44012/2",
+  "stage": "Lainvoimainen",
+  "keywords": [
+   "palveluasuminen"
+  ],
+  "quote": "Sosiaali- ja terveydenhuoltoa palvelevien rakennusten korttelialue, johon saa sijoittaa palveluasumista.",
+  "class": "candidate",
+  "pdf_url": "https://kartat.espoo.fi/documents/kaavamaaraykset/510303.pdf",
+  "source": "wfs-ocr"
+ },
+ {
+  "city": "espoo",
+  "kaava": "440101",
+  "nimi": "Iivisniemi Muutos 31004, 31006 Ja 31010",
+  "stage": "Lainvoimainen",
+  "keywords": [
+   "vanhainkoti"
+  ],
+  "quote": "Opetus- ja sosiaalista toimintaa palvelevien rakennusten korttelialue. Korttelialueelle saa sijoittaa myös 500 m² asuntokerrosalaa vanhainkotia varten.",
+  "class": "candidate",
+  "pdf_url": "https://kartat.espoo.fi/documents/kaavamaaraykset/440101.pdf",
+  "source": "wfs-ocr"
+ },
+ {
+  "city": "espoo",
+  "kaava": "320901",
+  "nimi": "Friisinkallio I Ja Friisilä I-Ii, 22. Kaup.Osan (Olari) K22272 Ja Osa Katu- Ja Puistoaluetta.",
+  "stage": "Lainvoimainen",
+  "keywords": [
+   "palvelutalo"
+  ],
+  "quote": "Tälle kaavamääräysalueelle saa rakentaa myös vanhusten asuinpalvelutalo.",
+  "class": "candidate",
+  "pdf_url": "https://kartat.espoo.fi/documents/kaavamaaraykset/320901.pdf",
+  "source": "wfs-ocr"
+ },
+ {
+  "city": "espoo",
+  "kaava": "212308",
+  "nimi": "Niittykumpu I Asemakaavan Muutos",
+  "stage": "Lainvoimainen",
+  "keywords": [
+   "palveluasuminen"
+  ],
+  "quote": "Palveluasumisen kaikkien vähimmäisvaatimusten mukaisten autopaikkojen tilalle voidaan käyttää samanaikaisesti vieraiden käytössä olevia pysäköintipaikkoja (pysäköintimääräys, ei sijoituslupaa).",
+  "class": "excluded",
+  "pdf_url": "https://kartat.espoo.fi/documents/kaavamaaraykset/212308.pdf",
+  "source": "wfs-ocr"
  }
 ];
