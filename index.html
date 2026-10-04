@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plot Finder — by Since Labs</title>
+<style>
+  :root { --bg:#1a1917; --card:#232120; --line:#38352f; --txt:#f0ede8; --dim:#98938c;
+          --accent:#e8e4dd; --accent-hi:#e07a38; --green:#6fb292; --red:#ff383c; --amber:#e8e4dd; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { background:var(--bg); color:var(--txt); font-family:'DM Sans',-apple-system,'Segoe UI',Roboto,sans-serif; min-height:100vh; }
+  header { padding:28px 32px 16px; border-bottom:1px solid var(--line); }
+  .brand{display:flex;align-items:center;gap:10px}
+.mark{color:#d4702f;font-weight:800;font-style:italic;font-size:1.15em;letter-spacing:-1px}
+.wm{color:#fff;font-weight:700;font-size:1.15rem;letter-spacing:.2px}
+  .brand .sep { color:var(--line); }
+  h1 { font-size:22px; font-weight:600; font-family:'Lora',Georgia,serif; margin-top:6px; }
+  h1 span { color:var(--accent); }
+  .sub { color:var(--dim); font-size:13px; margin-top:4px; }
+  .toolbar { display:flex; gap:12px; align-items:center; padding:16px 32px; flex-wrap:wrap; }
+  .search { flex:1; min-width:260px; position:relative; }
+  .search input { width:100%; padding:10px 14px 10px 38px; background:var(--card); border:1px solid var(--line);
+    border-radius:8px; color:var(--txt); font-size:14px; outline:none; }
+  .search input:focus { border-color:var(--accent); }
+  .search svg { position:absolute; left:12px; top:11px; width:16px; height:16px; stroke:var(--dim); fill:none; stroke-width:2; }
+  .filters { display:flex; gap:8px; }
+  .chip { padding:8px 14px; border-radius:20px; border:1px solid var(--line); background:var(--card);
+    color:var(--dim); font-size:13px; cursor:pointer; user-select:none; }
+  .chip.on { border-color:var(--accent); color:var(--txt); background:rgba(212,112,47,.18); }
+  .stats { padding:0 32px 8px; color:var(--dim); font-size:13px; }
+  .stats b { color:var(--green); }
+  main { padding:8px 32px 48px; display:grid; gap:14px; max-width:1000px; margin:0 auto; }
+  .hit { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:18px 20px; }
+  .hit.top { border-left:3px solid var(--green); }
+  .hit.ctx { border-left:3px solid var(--amber); opacity:.85; }
+  .hit.exc { border-left:3px solid var(--red); opacity:.6; }
+  .hit-head { display:flex; justify-content:space-between; align-items:baseline; gap:12px; flex-wrap:wrap; }
+  .kaava { font-size:17px; font-weight:600; }
+  .kaava small { color:var(--dim); font-weight:400; margin-left:8px; }
+  .badge { font-size:11px; padding:3px 10px; border-radius:12px; font-weight:600; letter-spacing:.4px; text-transform:uppercase; }
+  .b-candidate { background:rgba(34,197,94,.15); color:var(--green); }
+  .b-context { background:rgba(245,158,11,.15); color:var(--amber); }
+  .b-excluded { background:rgba(239,68,68,.15); color:var(--red); }
+  .kws { margin:8px 0; display:flex; gap:6px; flex-wrap:wrap; }
+  .kw { font-size:12px; background:rgba(212,112,47,.14); color:#eda675; padding:2px 10px; border-radius:10px; }
+  .keyinfo { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:8px; margin:12px 0; }
+  .ki { background:rgba(255,255,255,.04); border:1px solid var(--line); border-radius:8px; padding:8px 12px; }
+  .ki .lab { font-size:10px; text-transform:uppercase; letter-spacing:.8px; color:var(--dim); margin-bottom:3px; }
+  .ki .val { font-size:13px; color:var(--txt); }
+  .ki .val.g { color:var(--green); font-weight:600; }
+  .ki .val.c { color:var(--amber); font-weight:600; }
+  .ki .val.x { color:var(--dim); }
+  .ki .val.none { color:var(--dim); font-style:italic; opacity:.7; }
+  blockquote { margin:10px 0; padding:12px 16px; background:rgba(255,255,255,.03); border-left:2px solid var(--line);
+    font-size:14px; line-height:1.6; color:#cdd7ea; font-style:italic; border-radius:0 8px 8px 0; }
+  mark { background:rgba(212,112,47,.35); color:var(--txt); padding:0 2px; border-radius:2px; }
+  .links { display:flex; gap:16px; margin-top:10px; flex-wrap:wrap; }
+  .links a { color:var(--accent); font-size:13px; text-decoration:none; display:inline-flex; align-items:center; gap:6px; }
+  .links a:hover { text-decoration:underline; }
+  .empty { text-align:center; color:var(--dim); padding:60px 0; }
+  .tabbar { display:flex; gap:4px; margin-left:8px; }
+  .tab { padding:8px 16px; border-radius:8px; border:1px solid var(--line); background:var(--card); color:var(--dim); font-size:13px; cursor:pointer; }
+  .tab.on { color:var(--txt); border-color:#55524b; background:#2b2926; }
+  #mapview { padding:0 32px 48px; }
+  #map { height:640px; max-width:1000px; margin:0 auto; border:1px solid var(--line); border-radius:12px; background:#141311; }
+  .leaflet-popup-content { font-family:'DM Sans',sans-serif; font-size:13px; }
+  .pop-title { font-weight:700; margin-bottom:4px; }
+  .pop-links a { color:#c2571d; display:block; text-decoration:none; margin-top:2px; }
+  .plot-label { font-size:11px; color:var(--dim); background:rgba(212,112,47,.12); padding:2px 8px; border-radius:8px; display:inline-block; margin-top:6px; }
+  footer { text-align:center; color:var(--dim); font-size:12px; padding:20px; border-top:1px solid var(--line); }
+  footer b { color:var(--accent); font-weight:600; }
+  .osm-dark { filter: invert(1) hue-rotate(180deg) brightness(0.85) contrast(0.9) saturate(0.6); }
+</style>
+</head>
+<body>
+<header>
+  <div class="brand"><span class="mark">//</span><span class="wm">Since Labs</span></div>
+  <h1>Kirkkonummi <span>mockup</span></h1>
+  <div class="sub">Zoning plans with service-housing (palveluasuminen / erityisryhmien asuminen) permission clauses</div>
+</header>
+<div class="toolbar">
+  <div class="search">
+    <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+    <input id="q" type="text" placeholder="Search kaava number, name, keyword or quote…">
+  </div>
+  <div class="filters">
+    <div class="chip on" data-f="candidate">Candidate plots</div>
+    <div class="chip" data-f="context">Context</div>
+    <div class="chip" data-f="excluded">Excluded</div>
+  </div>
+  <div class="tabbar">
+    <button class="tab on" data-t="list">Hits</button>
+    <button class="tab" data-t="map">Kartta</button>
+  </div>
+</div>
+<div class="stats" id="stats"></div>
+<main id="list"></main>
+<div id="mapview" style="display:none"><div id="map"></div></div>
+<!-- Leaflet pinned version, no SRI: demo runs from raw.githubusercontent, integrity hash unpinned upstream; acceptable for mockup -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/sincelabs/how-to-cheat-ai@plotfinder-demo/data.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/sincelabs/how-to-cheat-ai@plotfinder-demo/plots.js"></script>
+<footer>Since Labs · Plot Finder mockup · data: Kirkkonummi open ArcGIS FeatureServer · every hit verifiable via source PDF</footer>
+<script>
+let show = {candidate:true, context:false, excluded:false};
+const q = document.getElementById('q');
+function render() {
+  const term = q.value.toLowerCase();
+  const hits = DATA.filter(h => show[h.class] !== false)
+    .filter(h => !term || (h.kaava+' '+h.nimi+' '+h.keywords.join(' ')+' '+h.quote).toLowerCase().includes(term));
+  const nCand = hits.filter(h=>h.class==='candidate').length;
+  document.getElementById('stats').innerHTML =
+    `${hits.length} shown · <b>${nCand} candidate plots</b> · 142 plan PDFs scanned · 29 text-readable`;
+  document.getElementById('list').innerHTML = hits.length ? hits.map(h => `
+    <div class="hit ${h.class==='candidate'?'top':h.class}">
+      <div class="hit-head">
+        <div class="kaava">Kaava ${h.kaava}<small>${h.nimi}</small></div>
+        <span class="badge b-${h.class}">${h.class}</span>
+      </div>
+      <div class="kws">${h.keywords.map(k=>`<span class="kw">${k}</span>`).join('')}</div>
+      ${(typeof PLOTS!=='undefined'&&PLOTS&&h.class==='candidate')?`<div class="plot-label">📍 Exact plots resolved: ${PLOTS.map(p=>p.label).join(', ')}</div>`:''}
+      ${keyinfo(h)}
+      <blockquote>${hl(h.quote, term)}</blockquote>
+      <div class="links">
+        <a href="${h.pdf_url}" target="_blank">📄 Source PDF — ${h.pdf_name}</a>
+        <a href="${h.map_url}" target="_blank">🗺 Municipality kaavoitus page</a>
+      </div>
+    </div>`).join('') : '<div class="empty">No matches.</div>';
+}
+function keyinfo(h) {
+  const ki = h.key_info || {};
+  const cells = [];
+  if (ki.permission) {
+    const cls = ki.permission==='granted' ? 'g' : (ki.permission==='proportional cap' ? 'c' : 'x');
+    cells.push(`<div class="ki"><div class="lab">Permission</div><div class="val ${cls}">${ki.permission}</div></div>`);
+  }
+  if (ki.plots && ki.plots.length) {
+    cells.push(`<div class="ki"><div class="lab">Named plots</div><div class="val">${ki.plots.join('<br>')}</div></div>`);
+  }
+  cells.push(`<div class="ki"><div class="lab">Building rights</div><div class="val ${ki.building_rights?'':'none'}">${ki.building_rights||'not stated in clause'}</div></div>`);
+  if (ki.operator_clause) {
+    cells.push(`<div class="ki"><div class="lab">Operator clause</div><div class="val c">present — check terms</div></div>`);
+  }
+  return cells.length ? `<div class="keyinfo">${cells.join('')}</div>` : '';
+}
+function hl(text, term) {
+  let t = text.replace(/&/g,'&amp;').replace(/</g,'&lt;');
+  if (!term) return t;
+  return t.replace(new RegExp('('+term.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','gi'), '<mark>$1</mark>');
+}
+document.querySelectorAll('.chip').forEach(c => c.onclick = () => {
+  c.classList.toggle('on'); show[c.dataset.f] = c.classList.contains('on'); render();
+});
+q.oninput = render; render();
+
+// ---- Map tab ----
+let mapInited = false, map, planLayer, plotLayer;
+function initMap() {
+  if (typeof L === 'undefined') {  // htmlpreview/CDN script-blocking fallback: load Leaflet then retry
+    const s = document.createElement('script');
+    s.src = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
+    s.onload = initMap;
+    document.head.appendChild(s);
+    const css = document.createElement('link');
+    css.rel = 'stylesheet'; css.href = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';
+    document.head.appendChild(css);
+    return;
+  }
+  map = L.map('map', {backgroundColor:'#141311'}).setView([60.126, 24.55], 11);
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution:'&copy; OpenStreetMap contributors', maxZoom:19, className:'osm-dark'}).addTo(map);
+  planLayer = L.layerGroup().addTo(map);
+  plotLayer = L.layerGroup().addTo(map);
+  const cands = DATA.filter(h => h.class === 'candidate');
+  const byKaava = {};
+  cands.forEach(h => { (byKaava[h.kaava] = byKaava[h.kaava] || []).push(h); });
+  (typeof PLAN_POLYS !== 'undefined' ? PLAN_POLYS : []).forEach(p => {
+    if (!p.ring || !byKaava[p.kaava]) return;
+    const hits = byKaava[p.kaava];
+    const poly = L.polygon(p.ring.map(pt => [pt[1], pt[0]]), {
+      color:'#6fb292', weight:2, fillOpacity:0.18}).addTo(planLayer);
+    const links = hits.map(h =>
+      `<div class="pop-links"><a href="${h.pdf_url}" target="_blank">📄 Kaavamääräys PDF</a></div>` +
+      `<div style="margin-top:6px;color:#98938c;max-width:260px;font-style:italic">"${h.quote.slice(0,140)}…"</div>`).join('');
+    poly.bindPopup(`<div class="pop-title">Kaava ${p.kaava} — ${p.name || hits[0].nimi}</div>${links}`);
+  });
+  (typeof PLOTS !== 'undefined' ? PLOTS : []).forEach(pl => {
+    if (!pl.ring) return;
+    const poly = L.polygon(pl.ring.map(pt => [pt[1], pt[0]]), {
+      color:'#e07a38', weight:3, fillOpacity:0.45}).addTo(plotLayer);
+    poly.bindPopup(`<div class="pop-title">Tontti ${pl.label}</div>
+      <div>Kiinteistötunnus: ${pl.kiinteistotunnus}</div>
+      <div>Pinta-ala: ${pl.area_m2} m²</div>
+      ${pl.address ? `<div>Osoite: ${pl.address}</div>` : ''}`);
+  });
+  L.control.layers({}, {'Kaava-alueet (candidates)': planLayer, 'Tontit (exact plots)': plotLayer}, {collapsed:false}).addTo(map);
+  mapInited = true;
+}
+document.querySelectorAll('.tab').forEach(t => t.onclick = () => {
+  document.querySelectorAll('.tab').forEach(x => x.classList.toggle('on', x === t));
+  const isMap = t.dataset.t === 'map';
+  document.getElementById('list').style.display = isMap ? 'none' : '';
+  document.getElementById('mapview').style.display = isMap ? '' : 'none';
+  if (isMap && !mapInited) initMap();
+  if (isMap) setTimeout(() => map.invalidateSize(), 50);
+});
+</script>
+</body>
+</html>
