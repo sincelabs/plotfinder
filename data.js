@@ -381,5 +381,51 @@ const DATA=[
   "key_info": {},
   "source": "ocr",
   "map_url": "https://web.dmcity.fi/kirkkonummi/public/"
+ },
+ {
+  "kaava": "2742",
+  "nimi": "Pohjois-Kolsari",
+  "stage": "Lainvoimainen (OCR)",
+  "keywords": [
+   "erityisasunnot"
+  ],
+  "quote": "Rakennusala, jolle saa rakentaa erityisasuntoja (Byggnadsyta, där specialbostäder får byggas). Koulun, päiväkodin ja/tai erityisasunnot otetaan käyttöön siinä vaiheessa kun kaavaan merkitty koulu ja/tai erityisasunnot otetaan käyttöön.",
+  "lang": "fi",
+  "class": "candidate",
+  "pdf_name": "2742_kaavamaarays.pdf",
+  "pdf_url": "",
+  "key_info": {},
+  "source": "ocr",
+  "map_url": "https://web.dmcity.fi/kirkkonummi/public/"
+ },
+ {
+  "kaava": "2882",
+  "nimi": "Asemakaava 2882",
+  "stage": "Lainvoimainen",
+  "keywords": [],
+  "quote": "",
+  "lang": "fi",
+  "class": "missing_doc",
+  "note": "Ei julkista kaavamääräysasiakirjaa — asiantuntija-arkisto (kunnan karttapalvelu, ArcGIS-liitteet ja kunnan sivut tarkistettu). Raportti käännetään paperille/asiantuntijalle.",
+  "pdf_name": "",
+  "pdf_url": "",
+  "key_info": {},
+  "source": "none",
+  "map_url": "https://web.dmcity.fi/kirkkonummi/public/"
+ },
+ {
+  "kaava": "35600",
+  "nimi": "Kvis",
+  "stage": "Kaavaehdotus",
+  "keywords": [],
+  "quote": "",
+  "lang": "fi",
+  "class": "missing_doc",
+  "note": "Ei julkista kaavamääräysasiakirjaa — asiantuntija-arkisto (kunnan karttapalvelu, ArcGIS-liitteet ja kunnan sivut tarkistettu). Raportti käännetään paperille/asiantuntijalle.",
+  "pdf_name": "",
+  "pdf_url": "",
+  "key_info": {},
+  "source": "none",
+  "map_url": "https://web.dmcity.fi/kirkkonummi/public/"
  }
 ];
