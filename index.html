@@ -76,15 +76,10 @@
 <body>
 <header>
   <div class="brand"><span class="mark">//</span><span class="wm">Since Labs</span></div>
-  <h1>Plot Finder <span>mockup</span></h1>
+  <h1>Kirkkonummi <span>mockup</span></h1>
   <div class="sub">Zoning plans with service-housing (palveluasuminen / erityisryhmien asuminen) permission clauses</div>
 </header>
 <div class="toolbar">
-  <select id="city" style="background:var(--card);color:var(--txt);border:1px solid var(--line);border-radius:8px;padding:8px 12px;font-family:inherit">
-    <option value="kirkkonummi">Kirkkonummi</option>
-    <option value="espoo">Espoo</option>
-    <option value="all">All municipalities</option>
-  </select>
   <div class="search">
     <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
     <input id="q" type="text" placeholder="Search kaava number, name, keyword or quote…">
@@ -106,26 +101,19 @@
 <!-- Leaflet pinned version, no SRI: demo runs from raw.githubusercontent, integrity hash unpinned upstream; acceptable for mockup -->
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/sincelabs/how-to-cheat-ai@plotfinder-demo/data.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/sincelabs/how-to-cheat-ai@plotfinder-demo/plots.js"></script>
-<footer>Since Labs · Plot Finder mockup · data: Kirkkonummi ArcGIS FeatureServer + Espoo Tekla WFS · every hit verifiable via source PDF</footer>
+<script src="data.js"></script>
+<script src="plots.js"></script>
+<footer>Since Labs · Plot Finder mockup · data: Kirkkonummi open ArcGIS FeatureServer · every hit verifiable via source PDF</footer>
 <script>
-let show = {candidate:true, context:false, excluded:false, missing_doc:true};
+let show = {candidate:true, context:false, excluded:false, missing_doc:false};
 const q = document.getElementById('q');
-const citySel = document.getElementById('city');
-function currentCity() { return citySel.value; }
 function render() {
   const term = q.value.toLowerCase();
-  const city = currentCity();
   const hits = DATA.filter(h => show[h.class] !== false)
-    .filter(h => city === 'all' || h.city === city)
     .filter(h => !term || (h.kaava+' '+h.nimi+' '+h.keywords.join(' ')+' '+h.quote).toLowerCase().includes(term));
   const nCand = hits.filter(h=>h.class==='candidate').length;
-  const scan = city==='kirkkonummi' ? '142 plan PDFs scanned · 29 text-readable'
-             : city==='espoo' ? '1,842 plan PDFs scanned · 1,371 text-readable'
-             : '1,984 plan PDFs scanned across 2 municipalities';
   document.getElementById('stats').innerHTML =
-    `${hits.length} shown · <b>${nCand} candidate plots</b> · ${scan}`;
+    `${hits.length} shown · <b>${nCand} candidate plots</b> · 142 plan PDFs scanned · 29 text-readable`;
   document.getElementById('list').innerHTML = hits.length ? hits.map(h => `
     <div class="hit ${h.class==='candidate'?'top':h.class}">
       <div class="hit-head">
@@ -138,8 +126,8 @@ function render() {
       ${keyinfo(h)}
       <blockquote>${hl(h.quote, term)}</blockquote>
       <div class="links">
-        ${h.pdf_url?`<a href="${h.pdf_url}" target="_blank">📄 Source PDF — ${h.pdf_name||''}</a>`:''}
-        <a href="${h.map_url || (h.city==='espoo' ? 'https://kartat.espoo.fi/decimen/' : 'https://web.dmcity.fi/kirkkonummi/public/')}" target="_blank">🗺 Municipality kaavoitus page</a>
+        <a href="${h.pdf_url}" target="_blank">📄 Source PDF — ${h.pdf_name}</a>
+        <a href="${h.map_url}" target="_blank">🗺 Municipality kaavoitus page</a>
       </div>
     </div>`).join('') : '<div class="empty">No matches.</div>';
 }
@@ -167,7 +155,7 @@ function hl(text, term) {
 document.querySelectorAll('.chip').forEach(c => c.onclick = () => {
   c.classList.toggle('on'); show[c.dataset.f] = c.classList.contains('on'); render();
 });
-q.oninput = render; citySel.onchange = render; render();
+q.oninput = render; render();
 
 // ---- Map tab ----
 let mapInited = false, map, planLayer, plotLayer;
@@ -187,18 +175,15 @@ function initMap() {
     attribution:'&copy; OpenStreetMap contributors', maxZoom:19, className:'osm-dark'}).addTo(map);
   planLayer = L.layerGroup().addTo(map);
   plotLayer = L.layerGroup().addTo(map);
-  const cands = DATA.filter(h => (h.class === 'candidate' || h.class === 'missing_doc') && (currentCity() === 'all' || h.city === currentCity()));
+  const cands = DATA.filter(h => h.class === 'candidate');
   const byKaava = {};
   cands.forEach(h => { (byKaava[h.kaava] = byKaava[h.kaava] || []).push(h); });
   (typeof PLAN_POLYS !== 'undefined' ? PLAN_POLYS : []).forEach(p => {
     if (!p.ring || !byKaava[p.kaava]) return;
     const hits = byKaava[p.kaava];
-    const missing = hits[0].class === 'missing_doc';
     const poly = L.polygon(p.ring.map(pt => [pt[1], pt[0]]), {
-      color: missing ? '#facc15' : '#6fb292', weight:2, fillOpacity:0.18}).addTo(planLayer);
-    const links = missing
-      ? `<div style="margin-top:6px;color:#facc15;max-width:260px">⚠ ${hits[0].note || 'Ei julkista kaavamääräysasiakirjaa'}</div>`
-      : hits.map(h =>
+      color:'#6fb292', weight:2, fillOpacity:0.18}).addTo(planLayer);
+    const links = hits.map(h =>
       `<div class="pop-links"><a href="${h.pdf_url}" target="_blank">📄 Kaavamääräys PDF</a></div>` +
       `<div style="margin-top:6px;color:#98938c;max-width:260px;font-style:italic">"${h.quote.slice(0,140)}…"</div>`).join('');
     poly.bindPopup(`<div class="pop-title">Kaava ${p.kaava} — ${p.name || hits[0].nimi}</div>${links}`);
