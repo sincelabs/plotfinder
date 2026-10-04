@@ -194,6 +194,7 @@ function initMap() {
     attribution:'&copy; OpenStreetMap contributors', maxZoom:19, className:'osm-dark'}).addTo(map);
   planLayer = L.layerGroup().addTo(map);
   plotLayer = L.layerGroup().addTo(map);
+  L.control.layers({}, {'Kaava-alueet (candidates)': planLayer, 'Tontit (exact plots)': plotLayer}, {collapsed:false}).addTo(map);
   mapInited = true;
   refreshMapLayers();
 }
@@ -229,7 +230,6 @@ function refreshMapLayers() {
       <div>Pinta-ala: ${pl.area_m2} m²</div>
       ${pl.address ? `<div>Osoite: ${pl.address}</div>` : ''}`);
   });
-  L.control.layers({}, {'Kaava-alueet (candidates)': planLayer, 'Tontit (exact plots)': plotLayer}, {collapsed:false}).addTo(map);
 }
 document.querySelectorAll('.tab').forEach(t => t.onclick = () => {
   document.querySelectorAll('.tab').forEach(x => x.classList.toggle('on', x === t));
