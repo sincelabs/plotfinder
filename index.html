@@ -106,8 +106,8 @@
 <!-- Leaflet pinned version, no SRI: demo runs from raw.githubusercontent, integrity hash unpinned upstream; acceptable for mockup -->
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<script src="data.js"></script>
-<script src="plots.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/sincelabs/how-to-cheat-ai@plotfinder-demo/data.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/sincelabs/how-to-cheat-ai@plotfinder-demo/plots.js"></script>
 <footer>Since Labs · Plot Finder mockup · data: Kirkkonummi ArcGIS FeatureServer + Espoo Tekla WFS · every hit verifiable via source PDF</footer>
 <script>
 let show = {candidate:true, context:false, excluded:false, missing_doc:true};
@@ -165,12 +165,19 @@ function hl(text, term) {
   return t.replace(new RegExp('('+term.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','gi'), '<mark>$1</mark>');
 }
 document.querySelectorAll('.chip').forEach(c => c.onclick = () => {
-  c.classList.toggle('on'); show[c.dataset.f] = c.classList.contains('on'); render();
+  c.classList.toggle('on'); show[c.dataset.f] = c.classList.contains('on'); render(); refreshMapLayers();
 });
-q.oninput = render; citySel.onchange = render; render();
+q.oninput = () => { render(); refreshMapLayers(); }; citySel.onchange = () => { render(); refreshMapLayers(); }; render();
 
 // ---- Map tab ----
 let mapInited = false, map, planLayer, plotLayer;
+function mapHits() {  // same filter chain as the list view
+  const term = q.value.toLowerCase();
+  const city = currentCity();
+  return DATA.filter(h => show[h.class] !== false)
+    .filter(h => city === 'all' || h.city === city)
+    .filter(h => !term || (h.kaava+' '+h.nimi+' '+h.keywords.join(' ')+' '+h.quote).toLowerCase().includes(term));
+}
 function initMap() {
   if (typeof L === 'undefined') {  // htmlpreview/CDN script-blocking fallback: load Leaflet then retry
     const s = document.createElement('script');
@@ -187,11 +194,20 @@ function initMap() {
     attribution:'&copy; OpenStreetMap contributors', maxZoom:19, className:'osm-dark'}).addTo(map);
   planLayer = L.layerGroup().addTo(map);
   plotLayer = L.layerGroup().addTo(map);
-  const cands = DATA.filter(h => (h.class === 'candidate' || h.class === 'missing_doc') && (currentCity() === 'all' || h.city === currentCity()));
+  mapInited = true;
+  refreshMapLayers();
+}
+function refreshMapLayers() {
+  if (!mapInited) return;
+  planLayer.clearLayers();
+  plotLayer.clearLayers();
+  const hits = mapHits();
   const byKaava = {};
-  cands.forEach(h => { (byKaava[h.kaava] = byKaava[h.kaava] || []).push(h); });
+  hits.forEach(h => { (byKaava[h.kaava] = byKaava[h.kaava] || []).push(h); });
+  const city = currentCity();
   (typeof PLAN_POLYS !== 'undefined' ? PLAN_POLYS : []).forEach(p => {
     if (!p.ring || !byKaava[p.kaava]) return;
+    if (city !== 'all' && p.city && p.city !== city) return;
     const hits = byKaava[p.kaava];
     const missing = hits[0].class === 'missing_doc';
     const poly = L.polygon(p.ring.map(pt => [pt[1], pt[0]]), {
@@ -205,6 +221,7 @@ function initMap() {
   });
   (typeof PLOTS !== 'undefined' ? PLOTS : []).forEach(pl => {
     if (!pl.ring) return;
+    if (city !== 'all' && pl.city && pl.city !== city) return;
     const poly = L.polygon(pl.ring.map(pt => [pt[1], pt[0]]), {
       color:'#e07a38', weight:3, fillOpacity:0.45}).addTo(plotLayer);
     poly.bindPopup(`<div class="pop-title">Tontti ${pl.label}</div>
@@ -213,7 +230,6 @@ function initMap() {
       ${pl.address ? `<div>Osoite: ${pl.address}</div>` : ''}`);
   });
   L.control.layers({}, {'Kaava-alueet (candidates)': planLayer, 'Tontit (exact plots)': plotLayer}, {collapsed:false}).addTo(map);
-  mapInited = true;
 }
 document.querySelectorAll('.tab').forEach(t => t.onclick = () => {
   document.querySelectorAll('.tab').forEach(x => x.classList.toggle('on', x === t));
