@@ -6,8 +6,14 @@ const DATA=[
   "stage": "Lainvoimainen",
   "keywords": [],
   "quote": "Määräykset eivät koske erityisryhmien asumista, palveluasumista eikä valtion tukemaa asuntotuotantoa.",
-  "class": "candidate",
-  "pdf_url": "",
+  "class": "excluded",
+  "key_info": {
+   "permission": "check manually",
+   "plots": [],
+   "building_rights": null,
+   "operator_clause": false
+  },
+  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/116/attachments/117",
   "source": "arcgis"
  },
  {
@@ -17,8 +23,14 @@ const DATA=[
   "stage": "Lainvoimainen",
   "keywords": [],
   "quote": "Määräyksen eivät koske erityisryhmien asumista tai palveluasumista eikä valtion tukemaa asuntotuotantoa.",
-  "class": "candidate",
-  "pdf_url": "",
+  "class": "excluded",
+  "key_info": {
+   "permission": "check manually",
+   "plots": [],
+   "building_rights": null,
+   "operator_clause": false
+  },
+  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/120/attachments/246",
   "source": "arcgis"
  },
  {
@@ -29,7 +41,16 @@ const DATA=[
   "keywords": [],
   "quote": "Kortteliin 2034 tontille 4 ja kortteliin 2064 tontille 1 saa rakentaa erityisryhmien asumista sekä em. toiminnan edellyttämiä oleskelu- ja työtiloja.",
   "class": "candidate",
-  "pdf_url": "",
+  "key_info": {
+   "permission": "granted",
+   "plots": [
+    "kortteli 2034 / tontti 4",
+    "kortteli 2064 / tontti 1"
+   ],
+   "building_rights": null,
+   "operator_clause": false
+  },
+  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/120/attachments/246",
   "source": "arcgis"
  },
  {
@@ -40,7 +61,13 @@ const DATA=[
   "keywords": [],
   "quote": "enintään puolet erityisryhmien asumiseen sekä em. AK-kortteleissa saa käyttää asuinrakennusoikeudesta Vesitorninmäen lähiympäristö- ja rakentamistapaohjetta.",
   "class": "candidate",
-  "pdf_url": "",
+  "key_info": {
+   "permission": "proportional cap",
+   "plots": [],
+   "building_rights": null,
+   "operator_clause": false
+  },
+  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/151/attachments/14",
   "source": "arcgis"
  },
  {
@@ -51,7 +78,13 @@ const DATA=[
   "keywords": [],
   "quote": "Korttelialueelle saa rakentaa erityisryhmien asuntoja sekä em. toiminnan edellyttämiä työpaikkoja enintään 3000 kerrosneliömetriä.",
   "class": "candidate",
-  "pdf_url": "",
+  "key_info": {
+   "permission": "proportional cap",
+   "plots": [],
+   "building_rights": "enintään 3000 k-m²",
+   "operator_clause": false
+  },
+  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/158/attachments/253",
   "source": "arcgis"
  },
  {
@@ -61,8 +94,14 @@ const DATA=[
   "stage": "Lainvoimainen",
   "keywords": [],
   "quote": "Määräykset eivät koske erityisryhmien asumista, palveluasumista eikä valtion tukemaa asuntotuotantoa.",
-  "class": "candidate",
-  "pdf_url": "",
+  "class": "excluded",
+  "key_info": {
+   "permission": "check manually",
+   "plots": [],
+   "building_rights": null,
+   "operator_clause": false
+  },
+  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/160/attachments/264",
   "source": "arcgis"
  },
  {
@@ -72,8 +111,14 @@ const DATA=[
   "stage": "Lainvoimainen",
   "keywords": [],
   "quote": "Määräykset eivät koske erityisryhmien asumista tai palveluasumista eikä valtion tukemaa asuntotuotantoa.",
-  "class": "candidate",
-  "pdf_url": "",
+  "class": "excluded",
+  "key_info": {
+   "permission": "check manually",
+   "plots": [],
+   "building_rights": null,
+   "operator_clause": false
+  },
+  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/201/attachments/55",
   "source": "arcgis"
  },
  {
@@ -84,7 +129,13 @@ const DATA=[
   "keywords": [],
   "quote": "AK -kortteli Korttelialueelle saa rakentaa erityisryhmien ryhmä- ja palveluasuntoja yhteistiloineen (esim. senioritalo).",
   "class": "candidate",
-  "pdf_url": "",
+  "key_info": {
+   "permission": "granted",
+   "plots": [],
+   "building_rights": null,
+   "operator_clause": false
+  },
+  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/292/attachments/302",
   "source": "arcgis"
  },
  {
@@ -95,7 +146,13 @@ const DATA=[
   "keywords": [],
   "quote": "Korttelialueelle saa rakentaa ensisijaisesti vanhusten ryhmä- ja palveluasuntoja yhteistiloineen. Alueelle saa rakentaa myös sosiaalitointa palvelevia tiloja.",
   "class": "candidate",
-  "pdf_url": "",
+  "key_info": {
+   "permission": "granted",
+   "plots": [],
+   "building_rights": null,
+   "operator_clause": false
+  },
+  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/376/attachments/300",
   "source": "arcgis"
  },
  {
@@ -105,8 +162,14 @@ const DATA=[
   "stage": "Lainvoimainen",
   "keywords": [],
   "quote": "Määräykset eivät koske erityisryhmien asumista, palveluasumista eikä valtion tukemaa asuntotuotantoa.",
-  "class": "candidate",
-  "pdf_url": "",
+  "class": "excluded",
+  "key_info": {
+   "permission": "check manually",
+   "plots": [],
+   "building_rights": null,
+   "operator_clause": false
+  },
+  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/434/attachments/119",
   "source": "arcgis"
  },
  {
@@ -116,8 +179,14 @@ const DATA=[
   "stage": "Lainvoimainen",
   "keywords": [],
   "quote": "Rakennuksen asunnoista yhden huoneen asuntojen keskimääräisen huoneistoalan (h-m2) on oltava vähintään 30 h-m2 lukuun ottamatta ikäihmisten palveluasumista tai erityisryhmien asumista.",
-  "class": "candidate",
-  "pdf_url": "",
+  "class": "context",
+  "key_info": {
+   "permission": "check manually",
+   "plots": [],
+   "building_rights": null,
+   "operator_clause": false
+  },
+  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/499/attachments/12",
   "source": "arcgis"
  },
  {
@@ -127,8 +196,14 @@ const DATA=[
   "stage": "Lainvoimainen",
   "keywords": [],
   "quote": "AKkorttelialueet Rakennuksen asuntojen huoneistoalasta (h-m2) yhden huoneen asuntojen yhteenlaskettu huoneistoala saa olla enintään 40 % lukuun ottamatta erityisryhmien asumista.",
-  "class": "candidate",
-  "pdf_url": "",
+  "class": "context",
+  "key_info": {
+   "permission": "proportional cap",
+   "plots": [],
+   "building_rights": null,
+   "operator_clause": false
+  },
+  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/499/attachments/12",
   "source": "arcgis"
  },
  {
@@ -138,8 +213,14 @@ const DATA=[
   "stage": "Lainvoimainen",
   "keywords": [],
   "quote": "Määräykset eivät koske erityisryhmien asumista, palveluasumista eivätkä valtion tukemaa asuntotuotantoa.",
-  "class": "candidate",
-  "pdf_url": "",
+  "class": "excluded",
+  "key_info": {
+   "permission": "check manually",
+   "plots": [],
+   "building_rights": null,
+   "operator_clause": false
+  },
+  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/570/attachments/1",
   "source": "arcgis"
  },
  {
@@ -149,8 +230,14 @@ const DATA=[
   "stage": "Lainvoimainen",
   "keywords": [],
   "quote": "Korttelissa asuntojen lukumäärästä vähintään 30 % tulee olla vähintään kolmen asuinhuoneen perheasuntoja, lukuun ottamatta rakennuksia, joissa on erityisryhmien asuntoja.",
-  "class": "candidate",
-  "pdf_url": "",
+  "class": "context",
+  "key_info": {
+   "permission": "check manually",
+   "plots": [],
+   "building_rights": null,
+   "operator_clause": false
+  },
+  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/570/attachments/1",
   "source": "arcgis"
  },
  {
@@ -161,7 +248,13 @@ const DATA=[
   "keywords": [],
   "quote": "A ja AP korttelialueet: alueelle voidaan rakentaa vanhusten palveluasuntoja ja niihin liittyviä palvelutiloja.",
   "class": "candidate",
-  "pdf_url": "",
+  "key_info": {
+   "permission": "granted",
+   "plots": [],
+   "building_rights": null,
+   "operator_clause": false
+  },
+  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/597/attachments/52",
   "source": "arcgis"
  },
  {
@@ -172,7 +265,7 @@ const DATA=[
   "keywords": [
    "vanhusten palveluasuminen"
   ],
-  "quote": "Luku osoittaa kuinka monta k-m² rakennuspaikan kerrosalasta saa käyttää vanhusten palvelutilaksi.",
+  "quote": "Merkintä ah300: Luku osoittaa kuinka monta k-m² rakennuspaikan kerrosalasta saa käyttää vanhusten palvelutilaksi (legendMerkintä käytetty kaavakartassa — vanhusten palvelutilaa varattu kerrosalaa).",
   "class": "candidate",
   "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/438/attachments/93",
   "source": "ocr"
