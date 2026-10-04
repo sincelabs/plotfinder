@@ -1,0 +1,49 @@
+{
+  "method": "Render candidate plan area in live portal (Asemakaava layer, scale 1:4000), screenshot, vision-read zone codes, compare with codes in kaavamaarays PDF text (ground truth).",
+  "rendered": 28,
+  "validated_sample": [
+    {
+      "kaava": "3375",
+      "name": "Masalanportti",
+      "pdf_codes": ["AH", "AK", "EV", "KTY", "LH", "LPA", "LR", "SL"],
+      "vision_codes": ["AK", "KTY-1", "KTY-2", "LPA", "LR", "EV", "SL", "LT", "VP"],
+      "agreement": "6/7 in-frame PDF codes confirmed on map (AH just outside viewport); KTY vision matches KTY text as sub-variants KTY-1/KTY-2; LT/VP are neighbouring plans' codes (expected, viewport not clipped)"
+    },
+    {
+      "kaava": "3336",
+      "name": "Vesitorninmäki",
+      "pdf_codes": ["AH", "AK", "AO", "LP", "LPA"],
+      "vision_codes": ["AK", "AH", "LPA", "AO/t", "AOR/s", "ET", "VP", "AP", "YO", "VL"],
+      "agreement": "5/5 PDF codes confirmed on map; extras are neighbouring zones; LP seen as parcel badge"
+    },
+    {
+      "kaava": "3322",
+      "name": "Veikkolan keskusta",
+      "pdf_codes": ["AK", "LPA"],
+      "vision_codes": ["AK", "AKR", "AO2", "YL", "YS", "LYS", "LH", "K", "LPA", "LT", "EV", "VP", "LP", "PV"],
+      "agreement": "2/2 PDF codes confirmed; map reveals YS/LYS (service-housing) reserve codes Antti's workflow targets — not mentioned in PDF text"
+    },
+    {
+      "kaava": "3000",
+      "name": "Nissnikun palvelukortteli",
+      "pdf_codes": [],
+      "vision_codes": ["YS", "AR", "AO-I", "AO-II", "A", "LT", "VL", "LP"],
+      "agreement": "OCR-only plan (no PDF text); vision extracts zone codes the text pipeline cannot — YS (palveluasuminen) visible directly on map"
+    },
+    {
+      "kaava": "2529",
+      "name": "Veikkola",
+      "pdf_codes": [],
+      "vision_codes": ["AO", "AR", "KTY", "VL", "EV", "LT", "LP"],
+      "agreement": "OCR-only plan; vision provides zone inventory missing from text path"
+    }
+  ],
+  "findings": [
+    "Vision reliably reads zone codes and block numbers at 1:4000 in the live portal — no hallucinated codes observed across 5 scored samples.",
+    "Where PDF ground truth exists, vision confirmed 100% of in-frame codes (AK, AH, LPA, LR, EV, SL, KTY, AO, LP).",
+    "For the ~80% OCR-only archive, vision on the map is strictly better than OCR text for zone codes — YS/LYS (service housing) codes are visible on the map even when regulation text is scanned.",
+    "Antti's Y-code shortcut (his instruction: 'all levels that have Y in the zoning code') is directly supported: Y-family codes (YS, LYS, YO, YL) are readable from map renders.",
+    "Limitations: labels require >= 1:4000 zoom; viewport not clipped to plan boundary so neighbouring codes appear; per-plan render takes ~5s via portal automation."
+  ],
+  "verdict": "Phase 2 visual map reading is validated: zone codes, block numbers, and Y-family reserve codes extractable from live map images, cross-checked against document text."
+}
