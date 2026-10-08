@@ -76,7 +76,7 @@
 <body>
 <header>
   <div class="brand"><span class="mark">//</span><span class="wm">Since Labs</span></div>
-  <h1>Plot Finder <span>mockup</span></h1>
+  <h1>Plot Finder</h1>
   <div class="sub">Zoning plans with service-housing (palveluasuminen / erityisryhmien asuminen) permission clauses</div>
 </header>
 <div class="toolbar">
@@ -108,7 +108,7 @@
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="data.js"></script>
 <script src="plots.js"></script>
-<footer>Since Labs · Plot Finder mockup · data: Kirkkonummi ArcGIS FeatureServer + Espoo Tekla WFS · every hit verifiable via source PDF</footer>
+<footer>Since Labs · Plot Finder · data: Kirkkonummi ArcGIS FeatureServer + Espoo Tekla WFS · every hit verifiable via source PDF</footer>
 <script>
 let show = {candidate:true, context:false, excluded:false, missing_doc:true};
 const q = document.getElementById('q');
@@ -228,7 +228,9 @@ function refreshMapLayers() {
     poly.bindPopup(`<div class="pop-title">Tontti ${pl.label}</div>
       <div>Kiinteistötunnus: ${pl.kiinteistotunnus}</div>
       <div>Pinta-ala: ${pl.area_m2} m²</div>
-      ${pl.address ? `<div>Osoite: ${pl.address}</div>` : ''}`);
+      ${pl.address ? `<div>Osoite: ${pl.address}</div>` : ''}
+      ${pl.kaava ? `<div style="margin-top:4px">Kaava: <a href="#" onclick="switchToHit('${pl.kaava}');return false">${pl.kaava}</a></div>` : ''}
+      ${pl.note ? `<div style="margin-top:4px;color:#98938c;font-style:italic;max-width:260px">${pl.note}</div>` : ''}`);
   });
 }
 document.querySelectorAll('.tab').forEach(t => t.onclick = () => {
@@ -239,6 +241,13 @@ document.querySelectorAll('.tab').forEach(t => t.onclick = () => {
   if (isMap && !mapInited) initMap();
   if (isMap) setTimeout(() => map.invalidateSize(), 50);
 });
+function switchToHit(kaava) {
+  // switch to list tab and highlight the hit for this kaava
+  document.querySelector('.tab[data-t="list"]').click();
+  q.value = kaava;
+  render();
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
 </script>
 </body>
 </html>
