@@ -51,7 +51,11 @@ const DATA=[
    "operator_clause": false
   },
   "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/120/attachments/246",
-  "source": "arcgis"
+  "source": "arcgis",
+  "plots": [
+   "kortteli 2034 / tontti 4",
+   "kortteli 2064 / tontti 1"
+  ]
  },
  {
   "city": "kirkkonummi",
