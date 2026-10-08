@@ -133,7 +133,7 @@ function render() {
         <span class="badge b-${h.class}">${h.class}</span>
       </div>
       <div class="kws">${h.keywords.map(k=>`<span class="kw">${k}</span>`).join('')}</div>
-      ${(typeof PLOTS!=='undefined'&&PLOTS&&h.class==='candidate')?`<div class="plot-label">📍 Exact plots resolved: ${PLOTS.map(p=>p.label).join(', ')}</div>`:''}
+      ${(typeof PLOTS!=='undefined'&&PLOTS&&h.class==='candidate'&&h.plots&&h.plots.length)?`<div class="plot-label">📍 Exact plots resolved: ${PLOTS.filter(p=>h.plots.some(q=>q.includes(p.label.replace('K','kortteli ').replace('T',' tontti ')))||p.kaava===h.kaava||(p.kortteli&&h.plots.some(q=>q.includes('kortteli '+p.kortteli)))).map(p=>p.label).join(', ')}</div>`:''}
       ${h.class==='missing_doc'&&h.note?`<div class="plot-label" style="color:#facc15">⚠</div><div class="plot-label">${h.note}</div>`:''}
       ${keyinfo(h)}
       <blockquote>${hl(h.quote, term)}</blockquote>
@@ -152,6 +152,9 @@ function keyinfo(h) {
   }
   if (ki.plots && ki.plots.length) {
     cells.push(`<div class="ki"><div class="lab">Named plots</div><div class="val">${ki.plots.join('<br>')}</div></div>`);
+  } else if (typeof PLOTS!=='undefined' && PLOTS.some(p=>p.kaava===h.kaava)) {
+    const ps = PLOTS.filter(p=>p.kaava===h.kaava);
+    cells.push(`<div class="ki"><div class="lab">Named plots</div><div class="val">kortteli-level permission — ${ps.length} parcels in zone on map (${ps[0].label}…)</div></div>`);
   }
   cells.push(`<div class="ki"><div class="lab">Building rights</div><div class="val ${ki.building_rights?'':'none'}">${ki.building_rights||'not stated in clause'}</div></div>`);
   if (ki.operator_clause) {
