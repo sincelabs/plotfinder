@@ -133,7 +133,7 @@ function render() {
         <span class="badge b-${h.class}">${h.class}</span>
       </div>
       <div class="kws">${h.keywords.map(k=>`<span class="kw">${k}</span>`).join('')}</div>
-      ${(typeof PLOTS!=='undefined'&&PLOTS&&h.plots&&h.plots.length)?`<div class="plot-label">📍 Exact plots resolved: ${(PLOTS.filter(p=>h.plots.some(q=>{const m=q.match(/kortteli\s+(\d+)\s*\/\s*tontti\s+(\d+)/); return m && p.kortteli===+m[1] && p.tontti===+m[2];})).map(p=>p.label).join(', ')||h.plots.join(', ')}</div>`:''}
+      ${(typeof PLOTS!=='undefined'&&PLOTS&&h.plots&&h.plots.length)?`<div class="plot-label">📍 Exact plots resolved: ${(PLOTS.filter(p=>h.plots.some(q=>{const m=q.match(/kortteli\s+(\d+)\s*\/\s*tontti\s+(\d+)/); return m && p.kortteli===+m[1] && p.tontti===+m[2];})).map(p=>p.label).join(', ')||h.plots.join(', '))}</div>`:''}
       ${h.class==='missing_doc'&&h.note?`<div class="plot-label" style="color:#facc15">⚠</div><div class="plot-label">${h.note}</div>`:''}
       ${keyinfo(h)}
       <blockquote>${hl(h.quote, term)}</blockquote>
