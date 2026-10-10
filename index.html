@@ -111,6 +111,8 @@
 <script src="plots.js"></script>
 <footer>Since Labs · Plot Finder · data: Kirkkonummi ArcGIS FeatureServer + Espoo Tekla WFS · every hit verifiable via source PDF</footer>
 <script>
+// NOTE: BUILDINGS must be declared before render()'s first invocation (bldStats reads it) — TDZ otherwise.
+let BUILDINGS = [];
 let show = {candidate:true, context:false, excluded:false, missing_doc:true};
 const q = document.getElementById('q');
 const citySel = document.getElementById('city');
@@ -189,7 +191,7 @@ document.querySelectorAll('.chip').forEach(c => c.onclick = () => {
 q.oninput = () => { render(); refreshMapLayers(); }; citySel.onchange = () => { render(); refreshMapLayers(); }; render();
 
 // ---- Map tab ----
-let mapInited = false, map, planLayer, plotLayer, bldLayer, BUILDINGS = [];
+let mapInited = false, map, planLayer, plotLayer, bldLayer;
 function mapHits() {  // same filter chain as the list view
   const term = q.value.toLowerCase();
   const city = currentCity();
