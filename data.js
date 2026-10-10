@@ -23,7 +23,7 @@ const DATA=[
   "stage": "Lainvoimainen",
   "keywords": [],
   "quote": "Määräyksen eivät koske erityisryhmien asumista tai palveluasumista eikä valtion tukemaa asuntotuotantoa.",
-  "class": "excluded",
+  "class": "context",
   "key_info": {
    "permission": "check manually",
    "plots": [],
@@ -31,7 +31,8 @@ const DATA=[
    "operator_clause": false
   },
   "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/122/attachments/203",
-  "source": "arcgis"
+  "source": "arcgis",
+  "note": "Poissulkeva lause samassa kaavassa — kaava sisältää myös luvan."
  },
  {
   "city": "kirkkonummi",
@@ -125,7 +126,7 @@ const DATA=[
   "stage": "Lainvoimainen",
   "keywords": [],
   "quote": "Määräykset eivät koske erityisryhmien asumista, palveluasumista eikä valtion tukemaa asuntotuotantoa.",
-  "class": "excluded",
+  "class": "context",
   "key_info": {
    "permission": "check manually",
    "plots": [],
@@ -133,7 +134,8 @@ const DATA=[
    "operator_clause": false
   },
   "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/163/attachments/186",
-  "source": "arcgis"
+  "source": "arcgis",
+  "note": "Poissulkeva lause samassa kaavassa — kaava sisältää myös luvan."
  },
  {
   "city": "kirkkonummi",
@@ -350,7 +352,7 @@ const DATA=[
   "stage": "Lainvoimainen",
   "keywords": [],
   "quote": "Määräykset eivät koske erityisryhmien asumista, palveluasumista eivätkä valtion tukemaa asuntotuotantoa.",
-  "class": "excluded",
+  "class": "context",
   "key_info": {
    "permission": "check manually",
    "plots": [],
@@ -358,7 +360,39 @@ const DATA=[
    "operator_clause": false
   },
   "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/574/attachments/2",
-  "source": "arcgis"
+  "source": "arcgis",
+  "note": "Poissulkeva lause samassa kaavassa — kaava sisältää myös luvan."
+ },
+ {
+  "city": "kirkkonummi",
+  "kaava": "3492",
+  "nimi": "Kirkkonummen keskusta, Tallinmäki",
+  "stage": "Lainvoimainen",
+  "keywords": [],
+  "quote": "Korttelin 111 tontille 9 saa rakentaa erityisryhmien asuntoja (palveluasumista tai tehostettua palveluasumista).",
+  "class": "candidate",
+  "key_info": {
+   "permission": "granted",
+   "plots": [
+    "kortteli 111 / tontti 9"
+   ],
+   "building_rights": null,
+   "operator_clause": false
+  },
+  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/574/attachments/2",
+  "source": "arcgis",
+  "plots": [
+   "kortteli 111 / tontti 9"
+  ],
+  "score": 92,
+  "verdict": "Vahva",
+  "score_factors": {
+   "allowed": 21.634615384615383,
+   "scale_fit": 20.0,
+   "demolition": 20.0,
+   "parcels": 15.0,
+   "stage": 15.0
+  }
  },
  {
   "city": "kirkkonummi",
