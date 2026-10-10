@@ -385,11 +385,17 @@ function refreshMapLayers() {
   const relevantBlds = applyBldFilters(BUILDINGS.filter(b => kaavaSet.has(b.kaava)));
   relevantBlds.forEach(b => {
     if (!b.ring) return;
-    const poly = L.polygon(b.ring.map(pt => [pt[1], pt[0]]), {
+    const polys = (b.rings && b.rings.length > 1) ? b.rings : [b.ring];
+    const poly = L.polygon(polys.map(r => r.map(pt => [pt[1], pt[0]])), {
       color:'#607d9b', weight:1.5, fillColor:'#607d9b', fillOpacity:0.35}).addTo(bldLayer);
     poly.bindPopup(`<div class="pop-title">Rakennus ${b.address || ''}</div>
-      ${b.kerrosala ? `<div>Kerrosala: ${b.kerrosala} k-m²</div>` : ''}
+      ${b.kerrosala ? `<div>Kerrosala: ${b.kerrosala.toLocaleString('fi-FI')} k-m²</div>` : ''}
       ${b.floors ? `<div>Kerroksia: ${b.floors}</div>` : ''}
+      ${b.apartments ? `<div>Huoneistoja: ${b.apartments}</div>` : ''}
+      ${b.tilavuus ? `<div>Tilavuus: ${Math.round(b.tilavuus).toLocaleString('fi-FI')} m³</div>` : ''}
+      ${b.kokonaisala ? `<div>Kokonaisala: ${b.kokonaisala.toLocaleString('fi-FI')} m²</div>` : ''}
+      <div>VTJ-PRT: ${b.vtj_prt || '—'}</div>
+      ${b.also_in && b.also_in.length ? `<div>Myös kaavoissa: ${b.also_in.join(', ')}</div>` : ''}
       <div style="margin-top:4px;color:#98938c;font-style:italic">Kaava ${b.kaava} — existing building; demolition required before new construction</div>`);
   });
   updateBldPanel();
