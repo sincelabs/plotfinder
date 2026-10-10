@@ -579,4 +579,27 @@ const DATA=[
   "pdf_url": "https://kartat.espoo.fi/documents/kaavamaaraykset/212308.pdf",
   "source": "wfs-ocr"
  }
+,
+{
+ "city": "kirkkonummi",
+ "kaava": "3061",
+ "nimi": "Keskustan terveysasema",
+ "stage": "Lainvoimainen",
+ "keywords": [
+  "YS-korttelialue",
+  "palvelurakennusten korttelialue"
+ ],
+ "quote": "Palvelurakennusten korttelialue (YS): Sosiaalitoimen ja terveydenhuollon palvelevien rakennusten korttelialue. Keskustan terveysasema, kortteli 101 — YS-korttelialue: 1 ap./80 k-m2.",
+ "class": "candidate",
+ "key_info": {
+  "permission": "zone-based",
+  "plots": [],
+  "building_rights": "1 ap./80 k-m2 (YS-korttelialue)",
+  "operator_clause": null
+ },
+ "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/378/attachments/281",
+ "note": "Löytyi kirkkoalueen manuaalitarkistuksessa (Antin testi). YS-merkintä = yleisten palvelurakennusten korttelialue (sosiaali- ja terveyspalvelut) — Antin Y-koodiperhettä, jota avainsanahaku ei kata. OCR-teksti, sanat yhdistyneitä.",
+ "quote_verified": "hand",
+ "source_type": "ocr"
+}
 ];
