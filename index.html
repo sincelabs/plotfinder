@@ -116,6 +116,11 @@ let BUILDINGS = [];
 let show = {candidate:true, context:false, excluded:false, missing_doc:true};
 const q = document.getElementById('q');
 const citySel = document.getElementById('city');
+// fetch buildings immediately so the list view chips work without opening the map
+fetch('buildings_data.json', {cache:'no-store'})
+  .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+  .then(d => { BUILDINGS = d; render(); })
+  .catch(e => console.warn('buildings_data.json unavailable:', e));
 function currentCity() { return citySel.value; }
 function render() {
   const term = q.value.toLowerCase();
@@ -217,10 +222,10 @@ function initMap() {
   plotLayer = L.layerGroup().addTo(map);
   bldLayer = L.layerGroup();
   L.control.layers({}, {'Kaava-alueet (candidates)': planLayer, 'Tontit (exact plots)': plotLayer, 'Rakennukset (existing buildings)': bldLayer}, {collapsed:false}).addTo(map);
-  // load buildings with no-store so stale cache can't hide them
+  // load buildings early with no-store so list chips + map layer both get it
   fetch('buildings_data.json', {cache:'no-store'})
     .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
-    .then(d => { BUILDINGS = d; refreshMapLayers(); })
+    .then(d => { BUILDINGS = d; render(); })
     .catch(e => console.warn('buildings_data.json unavailable:', e));
   mapInited = true;
   refreshMapLayers();
