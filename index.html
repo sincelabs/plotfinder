@@ -96,6 +96,10 @@
     <div class="chip" data-f="excluded">Excluded</div>
     <div class="chip" data-f="missing_doc">No document</div>
   </div>
+  <select id="sortBy" style="background:var(--card);color:var(--txt);border:1px solid var(--line);border-radius:8px;padding:8px 12px;font-family:inherit">
+    <option value="score">Mahdollisuuspisteet (korkein ensin)</option>
+    <option value="kaava">Kaava-numero</option>
+  </select>
   <div class="tabbar">
     <button class="tab on" data-t="list">Hits</button>
     <button class="tab" data-t="map">Kartta</button>
@@ -146,6 +150,10 @@ function render() {
   const hits = DATA.filter(h => show[h.class] !== false)
     .filter(h => city === 'all' || h.city === city)
     .filter(h => !term || (h.kaava+' '+h.nimi+' '+h.keywords.join(' ')+' '+h.quote).toLowerCase().includes(term));
+  const sortBy = (document.getElementById('sortBy')||{}).value || 'score';
+  hits.sort((a,b) => sortBy === 'score'
+    ? (b.score||0) - (a.score||0) || String(a.kaava).localeCompare(String(b.kaava))
+    : String(a.kaava).localeCompare(String(b.kaava)));
   const nCand = hits.filter(h=>h.class==='candidate').length;
   const scan = city==='kirkkonummi' ? '142 plan PDFs scanned · 29 text-readable'
              : city==='espoo' ? '1,842 plan PDFs scanned · 1,371 text-readable'
@@ -156,6 +164,7 @@ function render() {
     <div class="hit ${h.class==='candidate'?'top':h.class}">
       <div class="hit-head">
         <div class="kaava">Kaava ${h.kaava}<small>${h.nimi}</small></div>
+        ${(h.score!=null&&h.class==='candidate')?`<span class="badge b-candidate" style="background:${h.score>=60?'#1f3d2b':(h.score>=35?'#3d331f':'#3d2222')};color:${h.score>=60?'#7ddf9a':(h.score>=35?'#e8c96a':'#e08a8a')}">⬤ ${h.score} · ${h.verdict}</span>`:''}
         <span class="badge b-${h.class}">${h.class}</span>
       </div>
       <div class="kws">${h.keywords.map(k=>`<span class="kw">${k}</span>`).join('')}</div>
@@ -308,7 +317,9 @@ document.querySelectorAll('.chip').forEach(c => c.onclick = () => {
 document.getElementById('bldPanelMount').innerHTML = BLD_CHIP_HTML;
 document.getElementById('bldMinArea').onchange = e => { bldFilters.minArea = +e.target.value; refreshMapLayers(); render(); };
 document.getElementById('bldOnParcel').onchange = e => { bldFilters.onParcelOnly = e.target.checked; refreshMapLayers(); render(); };
-q.oninput = () => { render(); refreshMapLayers(); }; citySel.onchange = () => { render(); refreshMapLayers(); }; render();
+q.oninput = () => { render(); refreshMapLayers(); }; citySel.onchange = () => { render(); refreshMapLayers(); };
+document.getElementById('sortBy').onchange = () => render();
+render();
 
 // ---- Map tab ----
 let mapInited = false, map, planLayer, plotLayer, bldLayer;
