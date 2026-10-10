@@ -354,7 +354,7 @@ function initMap() {
     attribution:'&copy; OpenStreetMap contributors', maxZoom:19, className:'osm-dark'}).addTo(map);
   planLayer = L.layerGroup().addTo(map);
   plotLayer = L.layerGroup().addTo(map);
-  bldLayer = L.layerGroup();
+  bldLayer = L.layerGroup().addTo(map);  // on by default: shows only relevance-filtered buildings
   L.control.layers({}, {'Kaava-alueet (candidates)': planLayer, 'Tontit (exact plots)': plotLayer, 'Rakennukset (existing buildings)': bldLayer}, {collapsed:false}).addTo(map);
   // load buildings early with no-store so list chips + map layer both get it
   fetch('buildings_data.json', {cache:'no-store'})
