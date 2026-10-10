@@ -193,14 +193,23 @@ function bldChip(h) {
 }
 
 function parseAllowed(h) {
-  // find "enintään N k-m2" style numbers in quote or key_info.building_rights
   const texts = [h.quote||'', (h.key_info&&h.key_info.building_rights)||''].join(' ');
+  const t = texts.replace(/\s+/g,' ');
   const nums = [];
-  const re = /(enintään|max\.|korkeintaan)?\s*([\d\s]{1,12})\s*(?:k-m2|k-m²|kerrosneliömetri)/gi;
-  let m; const t = texts.replace(/\s+/g,' ');
+  // (1) plan-total: "enintään N k-m2" style
+  let re = /(enintään|max\.|korkeintaan)?\s*([\d\s]{1,12})\s*(?:k-m2|k-m²|kerrosneliömetri)/gi;
+  let m;
   while ((m = re.exec(t)) !== null) {
     const n = parseInt(m[2].replace(/\s/g,''), 10);
-    if (n > 0 && n < 1000000) nums.push({n, capped: !!m[1]});
+    if (n > 0 && n < 1000000) nums.push({n, capped: !!m[1], kind: 'total'});
+  }
+  if (nums.length) return nums;
+  // (2) per-unit rights table: "N ap./M k-m2" -> M is per unit; units unclear, use M*N if both parse
+  re = /(\d+)\s*ap\.?\s*\/\s*(\d+)\s*k-m/i;
+  m = re.exec(t);
+  if (m) {
+    const per = parseInt(m[2],10);
+    if (per > 0) nums.push({n: per, capped: false, kind: 'per-unit'});
   }
   return nums;
 }
