@@ -13,7 +13,7 @@ const DATA=[
    "building_rights": null,
    "operator_clause": false
   },
-  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/116/attachments/117",
+  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/118/attachments/306",
   "source": "arcgis"
  },
  {
@@ -30,7 +30,7 @@ const DATA=[
    "building_rights": null,
    "operator_clause": false
   },
-  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/120/attachments/246",
+  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/122/attachments/203",
   "source": "arcgis"
  },
  {
@@ -50,7 +50,7 @@ const DATA=[
    "building_rights": null,
    "operator_clause": false
   },
-  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/120/attachments/246",
+  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/122/attachments/203",
   "source": "arcgis",
   "plots": [
    "kortteli 2034 / tontti 4",
@@ -71,7 +71,7 @@ const DATA=[
    "building_rights": null,
    "operator_clause": false
   },
-  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/151/attachments/14",
+  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/154/attachments/14",
   "source": "arcgis"
  },
  {
@@ -88,7 +88,7 @@ const DATA=[
    "building_rights": "enintään 3000 k-m²",
    "operator_clause": false
   },
-  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/158/attachments/253",
+  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/161/attachments/197",
   "source": "arcgis"
  },
  {
@@ -105,7 +105,7 @@ const DATA=[
    "building_rights": null,
    "operator_clause": false
   },
-  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/160/attachments/264",
+  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/163/attachments/186",
   "source": "arcgis"
  },
  {
@@ -122,7 +122,7 @@ const DATA=[
    "building_rights": null,
    "operator_clause": false
   },
-  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/201/attachments/55",
+  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/204/attachments/51",
   "source": "arcgis"
  },
  {
@@ -139,7 +139,7 @@ const DATA=[
    "building_rights": null,
    "operator_clause": false
   },
-  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/292/attachments/302",
+  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/295/attachments/140",
   "source": "arcgis"
  },
  {
@@ -156,7 +156,7 @@ const DATA=[
    "building_rights": null,
    "operator_clause": false
   },
-  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/376/attachments/300",
+  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/379/attachments/141",
   "source": "arcgis"
  },
  {
@@ -173,7 +173,7 @@ const DATA=[
    "building_rights": null,
    "operator_clause": false
   },
-  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/434/attachments/119",
+  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/437/attachments/304",
   "source": "arcgis"
  },
  {
@@ -190,7 +190,7 @@ const DATA=[
    "building_rights": null,
    "operator_clause": false
   },
-  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/499/attachments/12",
+  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/502/attachments/13",
   "source": "arcgis"
  },
  {
@@ -207,7 +207,7 @@ const DATA=[
    "building_rights": null,
    "operator_clause": false
   },
-  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/499/attachments/12",
+  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/502/attachments/13",
   "source": "arcgis"
  },
  {
@@ -224,7 +224,7 @@ const DATA=[
    "building_rights": null,
    "operator_clause": false
   },
-  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/570/attachments/1",
+  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/574/attachments/2",
   "source": "arcgis"
  },
  {
@@ -241,7 +241,7 @@ const DATA=[
    "building_rights": null,
    "operator_clause": false
   },
-  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/570/attachments/1",
+  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/574/attachments/2",
   "source": "arcgis"
  },
  {
@@ -258,7 +258,7 @@ const DATA=[
    "building_rights": null,
    "operator_clause": false
   },
-  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/597/attachments/52",
+  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/601/attachments/48",
   "source": "arcgis"
  },
  {
