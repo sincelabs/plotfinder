@@ -1,4 +1,4 @@
-const DATA=[
+const DATA = [
  {
   "city": "kirkkonummi",
   "kaava": "3397",
@@ -373,7 +373,7 @@ const DATA=[
    "palveluasuminen",
    "palvelutalo"
   ],
-  "quote": "lle kiin- nusaloilla. Pysäköintiin liittyvät tilat saa toteuttaa köintilaitoksiin ”ma-1” ja ”ma-2”- merkityillä raken- Korttelin kaikki autopaikat tulee toteuttaa pysä- alaa (ysa) -1 ap/400 k-m² hoivapalveluasumisen kerros- alaa -1 ap/75 k-m² toimisto- ja työtilojen kerros- paikkoja 1 ap/ryhmä kerrosalaa. Päiväkodille tulee varata saatto- -1 ap/200 k-m² julkisten palveluiden (yl, yy) -1 ap/120 k-m² liiketilojen kerrosalaa vähintään 0,5 ap/asunto -1 ap/130 k-m² asuntojen kerrosalaa, kuitenkin seuraavasti: Autop",
+  "quote": "lle kiin- nusaloilla. Pysäköintiin liittyvät tilat saa toteuttaa köintilaitoksiin ”ma-1” ja ”ma-2”- merkityillä raken- Korttelin kaikki autopaikat tulee toteuttaa pysä- alaa (ysa) -1 ap/400 k-m² hoivapalveluasumisen kerros- alaa -1 ap/75 k-m² toimisto- ja työtilojen kerros- paikkoja 1 ap/ryhmä kerrosalaa.",
   "class": "candidate",
   "pdf_url": "https://kartat.espoo.fi/documents/kaavamaaraykset/410310.pdf",
   "source": "wfs"
@@ -387,7 +387,7 @@ const DATA=[
    "palvelutalo",
    "vanhustenpalvelut"
   ],
-  "quote": "lle tulee järjestää porras- saa sijoittaa toiselle tontille kiinteistöjen välisin toteuttaa annetun kerrosalan lisäksi, ja niitä autopaikkaa (p). Pysäköintiin liittyvät tilat saa toteuttaa enintään 7 palvelutalolle kuuluvaa pysäköintilaitoksessa.Piha-alueelle voidaan AK-korttelialueen autopaikat tulee toteuttaa - 1ap/75 k-m² palvelu- ja työtilojen kerrosalaa. perusteella. hakemuksen yhteydessä esitetyn selvityksen edellyttämä määrä autopaikkoja rakennuslupa- Korttelialueelle tulee varata käyttötarkoituksen -1",
+  "quote": "lle tulee järjestää porras- saa sijoittaa toiselle tontille kiinteistöjen välisin toteuttaa annetun kerrosalan lisäksi, ja niitä autopaikkaa (p). Pysäköintiin liittyvät tilat saa toteuttaa enintään 7 palvelutalolle kuuluvaa pysäköintilaitoksessa.Piha-alueelle voidaan AK-korttelialueen autopaikat tulee toteuttaa - 1ap/75 k-m² palvelu- ja työtilojen kerrosalaa. perusteella.",
   "class": "candidate",
   "pdf_url": "https://kartat.espoo.fi/documents/kaavamaaraykset/410309.pdf",
   "source": "wfs"
@@ -400,7 +400,7 @@ const DATA=[
   "keywords": [
    "palveluasuminen"
   ],
-  "quote": "ulkotiloissa. olevaan tilaan. Lisäksi tulee osoittaa tilaa lyhyt- paikat on sijoitettava katettuun ja lukittavissa Kaikki vähimmäisvaatimuksen mukaiset pyörä- - Toimistot ja liiketilat 1 pp/200 k-m². palveluasumisessa 0,5 pp/asunto opiskelija-asunnoissa 1,5 pp/asunto, vähintään 2 pp/asunto, yksiöissä ja - Asunnot 1 pp/30 k-m², kuitenkin vähintään seuraavasti: Polkupyöräpaikkoja on rakennettava teistöjen välisin sopimuksin. Autopaikkoja saa sijoittaa toiselle tontille kiin- tössä eikä niihin sovelleta mitään keve",
+  "quote": "ulkotiloissa. olevaan tilaan. Lisäksi tulee osoittaa tilaa lyhyt- paikat on sijoitettava katettuun ja lukittavissa Kaikki vähimmäisvaatimuksen mukaiset pyörä- - Toimistot ja liiketilat 1 pp/200 k-m². palveluasumisessa 0,5 pp/asunto opiskelija-asunnoissa 1,5 pp/asunto, vähintään 2 pp/asunto, yksiöissä ja - Asunnot 1 pp/30 k-m², kuitenkin vähintään seuraavasti: Polkupyöräpaikkoja on rakennettava teistöjen välisin sopimuksin.",
   "class": "candidate",
   "pdf_url": "https://kartat.espoo.fi/documents/kaavamaaraykset/211836.pdf",
   "source": "wfs"
@@ -439,7 +439,7 @@ const DATA=[
   "keywords": [
    "palveluasuminen"
   ],
-  "quote": "Till läget riktgivande byggyta. med arabiskt tal angivna byggrätten placeras. laisen luvun osoittama rakennusoikeus sijoittuu. Merkintä osoittaa ne rakennusalat, joille arabia- pk vm so palveluja ja palveluasumista. Rakennusala, jolle saa sijoittaa sosiaalitoimen niihin on helppo pääsy. tamon. Muuntamotilat tulee sijoittaa niin, että Ohjeellinen rakennusala, jolle saa sijoittaa muun- tän huoltorakennuksen. Ohjeellinen rakennusala, jolle saa sijoittaa ken- I a /ma ks-1 ark Beteckningen anger att denna sida av",
+  "quote": "Till läget riktgivande byggyta. med arabiskt tal angivna byggrätten placeras. laisen luvun osoittama rakennusoikeus sijoittuu. Merkintä osoittaa ne rakennusalat, joille arabia- pk vm so palveluja ja palveluasumista. Rakennusala, jolle saa sijoittaa sosiaalitoimen niihin on helppo pääsy. tamon. Muuntamotilat tulee sijoittaa niin, että Ohjeellinen rakennusala, jolle saa sijoittaa muun- tän huoltorakennuksen.",
   "class": "candidate",
   "pdf_url": "https://kartat.espoo.fi/documents/kaavamaaraykset/130140.pdf",
   "source": "wfs"
