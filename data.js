@@ -271,7 +271,7 @@ const DATA=[
   ],
   "quote": "Merkintä ah300: Luku osoittaa kuinka monta k-m² rakennuspaikan kerrosalasta saa käyttää vanhusten palvelutilaksi (legendMerkintä käytetty kaavakartassa — vanhusten palvelutilaa varattu kerrosalaa).",
   "class": "candidate",
-  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/438/attachments/93",
+  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/441/attachments/78",
   "source": "ocr"
  },
  {
@@ -284,7 +284,7 @@ const DATA=[
   ],
   "quote": "Alalle saa sijoittaa sosiaali- ja terveydenhuoltoa palvelevia tuetun asumisen palveluja oheistiloineen.",
   "class": "candidate",
-  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/542/attachments/255",
+  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/546/attachments/194",
   "source": "ocr"
  },
  {
@@ -297,7 +297,7 @@ const DATA=[
   ],
   "quote": "Korttelin 350 A-korttelialue: Alueelle on sallittu sijoittaa erityisryhmien asuntoja sekä em. toiminnan edellyttämiä työpaikkoja. A-korttelin erityisryhmien asuintiloja varten 1 ap/150 k-m², erityisryhmien kerho- ja yhteistiloja varten 1 ap/100 k-m².",
   "class": "candidate",
-  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/576/attachments/33",
+  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/580/attachments/31",
   "source": "ocr"
  },
  {
@@ -311,7 +311,7 @@ const DATA=[
   ],
   "quote": "AK-korttelialue: asuintilat 1 ap./85 k-m². Vanhustenpalvelu-asumistilat 1 ap./150 k-m². Myymälätilat 1 ap./40 k-m². Julkiset palvelutilat 1 ap./150 k-m².",
   "class": "candidate",
-  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/189/attachments/65",
+  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/192/attachments/58",
   "source": "ocr"
  },
  {
@@ -324,7 +324,7 @@ const DATA=[
   ],
   "quote": "Korttelialueen asuinrakennusoikeudesta saa käyttää enintään 3000 k-m² erityisryhmien asumiseen sekä em. toiminnan edellyttämiä oleskelu- ja työtiloja varten. AK-korttelissa erityisryhmien asuintila 1 ap./150 k-m², erityisryhmien kerho- ja yhteistila 1 ap./100 k-m².",
   "class": "candidate",
-  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/203/attachments/266",
+  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/206/attachments/183",
   "source": "ocr"
  },
  {
@@ -337,7 +337,7 @@ const DATA=[
   ],
   "quote": "Rakennusala, jolle saa rakentaa erityisasuntoja . Koulun, päiväkodin ja/tai erityisasunnot otetaan käyttöön siinä vaiheessa kun kaavaan merkitty koulu ja/tai erityisasunnot otetaan käyttöön.",
   "class": "candidate",
-  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/550/attachments/214",
+  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/554/attachments/239",
   "source": "ocr"
  },
  {
