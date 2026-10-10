@@ -119,7 +119,7 @@
 // NOTE: BUILDINGS must be declared before render()'s first invocation (bldStats reads it) — TDZ otherwise.
 let BUILDINGS = [];
 // Buildings relevance filters (Antti: flag only buildings that matter for building)
-const bldFilters = { minArea: 0, onParcelOnly: false };
+const bldFilters = { minArea: 0, onParcelOnly: false, showAll: false };
 const BLD_CHIP_HTML = `
 <div id="bldFilters" style="display:none;margin:8px 0;padding:10px 12px;border:1px solid #3a3833;border-radius:8px;background:#211f1c;font-size:12px">
   <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center">
@@ -132,6 +132,8 @@ const BLD_CHIP_HTML = `
       </select></label>
     <label style="display:flex;align-items:center;gap:6px;color:#c9c4bd">
       <input type="checkbox" id="bldOnParcel"> vain tonteilla (exact plots)</label>
+    <label style="display:flex;align-items:center;gap:6px;color:#c9c4bd">
+      <input type="checkbox" id="bldShowAll"> näytä kaikki rakennukset</label>
     <span id="bldCount" style="color:#98938c"></span>
   </div>
 </div>`;
@@ -227,11 +229,16 @@ function bldCentroid(ring) {
   let x = 0, y = 0; ring.forEach(p => { x += p[0]; y += p[1]; });
   return [x/n, y/n];
 }
-// apply relevance filters to a building list
+// apply relevance filters to a building list.
+// Default (no explicit user filter): show only RELEVANT buildings — significant
+// (>=1000 k-m2 or >=3 floors) or sitting on an exact candidate parcel. Small
+// occupied houses are noise for Hoivatilat and hidden unless user widens.
 function applyBldFilters(bs) {
   const onParcel = bldFilters.onParcelOnly && typeof PLOTS !== 'undefined' && PLOTS.length;
+  const widened = bldFilters.minArea > 0 || bldFilters.showAll;
   return bs.filter(b => {
     if (bldFilters.minArea && (b.kerrosala||0) < bldFilters.minArea) return false;
+    if (!widened && b.relevant === false) return false;
     if (!onParcel) return true;
     const c = bldCentroid(b.ring || []);
     if (!c) return false;
@@ -317,6 +324,7 @@ document.querySelectorAll('.chip').forEach(c => c.onclick = () => {
 document.getElementById('bldPanelMount').innerHTML = BLD_CHIP_HTML;
 document.getElementById('bldMinArea').onchange = e => { bldFilters.minArea = +e.target.value; refreshMapLayers(); render(); };
 document.getElementById('bldOnParcel').onchange = e => { bldFilters.onParcelOnly = e.target.checked; refreshMapLayers(); render(); };
+document.getElementById('bldShowAll').onchange = e => { bldFilters.showAll = e.target.checked; refreshMapLayers(); render(); };
 q.oninput = () => { render(); refreshMapLayers(); }; citySel.onchange = () => { render(); refreshMapLayers(); };
 document.getElementById('sortBy').onchange = () => render();
 render();
