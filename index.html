@@ -101,6 +101,7 @@
     <button class="tab" data-t="map">Kartta</button>
   </div>
 </div>
+<div id="bldPanelMount"></div>
 <div class="stats" id="stats"></div>
 <main id="list"></main>
 <div id="mapview" style="display:none"><div id="map"></div></div>
@@ -113,6 +114,23 @@
 <script>
 // NOTE: BUILDINGS must be declared before render()'s first invocation (bldStats reads it) — TDZ otherwise.
 let BUILDINGS = [];
+// Buildings relevance filters (Antti: flag only buildings that matter for building)
+const bldFilters = { minArea: 0, onParcelOnly: false };
+const BLD_CHIP_HTML = `
+<div id="bldFilters" style="display:none;margin:8px 0;padding:10px 12px;border:1px solid #3a3833;border-radius:8px;background:#211f1c;font-size:12px">
+  <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center">
+    <label style="display:flex;align-items:center;gap:6px;color:#c9c4bd">Min. kerrosala
+      <select id="bldMinArea" style="background:#141311;color:#e8e4de;border:1px solid #3a3833;border-radius:6px;padding:2px 6px">
+        <option value="0">kaikki</option>
+        <option value="100">≥ 100 k-m²</option>
+        <option value="300">≥ 300 k-m²</option>
+        <option value="1000">≥ 1 000 k-m²</option>
+      </select></label>
+    <label style="display:flex;align-items:center;gap:6px;color:#c9c4bd">
+      <input type="checkbox" id="bldOnParcel"> vain tonteilla (exact plots)</label>
+    <span id="bldCount" style="color:#98938c"></span>
+  </div>
+</div>`;
 let show = {candidate:true, context:false, excluded:false, missing_doc:true};
 const q = document.getElementById('q');
 const citySel = document.getElementById('city');
@@ -179,13 +197,43 @@ function hl(text, term) {
 }
 function bldStats(kaava) {
   if (typeof BUILDINGS === 'undefined') return null;
-  const bs = BUILDINGS.filter(b => b.kaava === String(kaava));
+  const bs = applyBldFilters(BUILDINGS.filter(b => b.kaava === String(kaava)));
   if (!bs.length) return null;
   return { count: bs.length,
            kerrosala: bs.reduce((s,b)=>s+(b.kerrosala||0),0),
            maxfloors: Math.max(0,...bs.map(b=>b.floors||0)),
            apartments: bs.reduce((s,b)=>s+(b.apartments||0),0) };
 }
+// point-in-polygon (ray casting) for parcel containment checks
+function ptInRing(lng, lat, ring) {
+  let inside = false;
+  for (let i = 0, j = ring.length - 1; i < ring.length; j = i++) {
+    const xi = ring[i][0], yi = ring[i][1], xj = ring[j][0], yj = ring[j][1];
+    if (((yi > lat) !== (yj > lat)) && (lng < (xj - xi) * (lat - yi) / (yj - yi) + xi)) inside = true;
+  }
+  return inside;
+}
+function bldCentroid(ring) {
+  const n = ring.length; if (!n) return null;
+  let x = 0, y = 0; ring.forEach(p => { x += p[0]; y += p[1]; });
+  return [x/n, y/n];
+}
+// apply relevance filters to a building list
+function applyBldFilters(bs) {
+  const onParcel = bldFilters.onParcelOnly && typeof PLOTS !== 'undefined' && PLOTS.length;
+  return bs.filter(b => {
+    if (bldFilters.minArea && (b.kerrosala||0) < bldFilters.minArea) return false;
+    if (!onParcel) return true;
+    const c = bldCentroid(b.ring || []);
+    if (!c) return false;
+    return PLOTS.some(pl => pl.ring && ptInRing(c[0], c[1], pl.ring));
+  });
+}
+function updateBldPanel() {
+  const el = document.getElementById('bldCount');
+  if (el) el.textContent = `${applyBldFilters(BUILDINGS).length} / ${BUILDINGS.length} buildings shown`;
+}
+
 function bldChip(h) {
   const s = bldStats(h.kaava);
   if (!s) return '';
@@ -256,6 +304,10 @@ td:first-child{font-weight:bold;width:220px;color:#555}blockquote{background:#f7
 document.querySelectorAll('.chip').forEach(c => c.onclick = () => {
   c.classList.toggle('on'); show[c.dataset.f] = c.classList.contains('on'); render(); refreshMapLayers();
 });
+// buildings filter panel: inject after DOM ready, show when buildings data arrives
+document.getElementById('bldPanelMount').innerHTML = BLD_CHIP_HTML;
+document.getElementById('bldMinArea').onchange = e => { bldFilters.minArea = +e.target.value; refreshMapLayers(); render(); };
+document.getElementById('bldOnParcel').onchange = e => { bldFilters.onParcelOnly = e.target.checked; refreshMapLayers(); render(); };
 q.oninput = () => { render(); refreshMapLayers(); }; citySel.onchange = () => { render(); refreshMapLayers(); }; render();
 
 // ---- Map tab ----
@@ -328,10 +380,11 @@ function refreshMapLayers() {
       ${pl.kaava ? `<div style="margin-top:4px">Kaava: <a href="#" onclick="switchToHit('${pl.kaava}');return false">${pl.kaava}</a></div>` : ''}
       ${pl.note ? `<div style="margin-top:4px;color:#98938c;font-style:italic;max-width:260px">${pl.note}</div>` : ''}`);
   });
-  // existing buildings (blue-gray footprints, only for plans currently shown)
+  // existing buildings (blue-gray footprints, only for plans currently shown, relevance-filtered)
   const kaavaSet = new Set(hits.map(h => String(h.kaava)));
-  BUILDINGS.forEach(b => {
-    if (!b.ring || !kaavaSet.has(b.kaava)) return;
+  const relevantBlds = applyBldFilters(BUILDINGS.filter(b => kaavaSet.has(b.kaava)));
+  relevantBlds.forEach(b => {
+    if (!b.ring) return;
     const poly = L.polygon(b.ring.map(pt => [pt[1], pt[0]]), {
       color:'#607d9b', weight:1.5, fillColor:'#607d9b', fillOpacity:0.35}).addTo(bldLayer);
     poly.bindPopup(`<div class="pop-title">Rakennus ${b.address || ''}</div>
@@ -339,6 +392,7 @@ function refreshMapLayers() {
       ${b.floors ? `<div>Kerroksia: ${b.floors}</div>` : ''}
       <div style="margin-top:4px;color:#98938c;font-style:italic">Kaava ${b.kaava} — existing building; demolition required before new construction</div>`);
   });
+  updateBldPanel();
 }
 document.querySelectorAll('.tab').forEach(t => t.onclick = () => {
   document.querySelectorAll('.tab').forEach(x => x.classList.toggle('on', x === t));
