@@ -146,6 +146,7 @@ function render() {
       ${h.class==='missing_doc'&&h.note?`<div class="plot-label" style="color:#facc15">⚠</div><div class="plot-label">${h.note}</div>`:''}
       ${keyinfo(h)}
       <blockquote>${hl(h.quote, term)}</blockquote>
+      ${h.class==='candidate'?`<button class="chip" style="display:inline-block;margin:8px 8px 0 0" onclick='openReport(${JSON.stringify(h).replace(/'/g,"&#39;")})'>📊 Raportti</button>`:''}
       <div class="links">
         ${h.pdf_url?`<a href="${h.pdf_url}" target="_blank">📄 Source PDF — ${h.pdf_name||''}</a>`:''}
         <a href="${h.map_url || (h.city==='espoo' ? 'https://kartat.espoo.fi/decimen/' : 'https://web.dmcity.fi/kirkkonummi/public/')}" target="_blank">🗺 Municipality kaavoitus page</a>
@@ -190,6 +191,54 @@ function bldChip(h) {
   if (!s) return '';
   return `<span class="bld-chip">🏗 ${s.count} existing building${s.count>1?'s':''} · ${s.kerrosala.toLocaleString('fi-FI')} k-m² floor area${s.maxfloors?` · up to ${s.maxfloors} floors`:''}${s.apartments?` · ${s.apartments} apartments`:''} — demolition may be required</span>`;
 }
+
+function parseAllowed(h) {
+  // find "enintään N k-m2" style numbers in quote or key_info.building_rights
+  const texts = [h.quote||'', (h.key_info&&h.key_info.building_rights)||''].join(' ');
+  const nums = [];
+  const re = /(enintään|max\.|korkeintaan)?\s*([\d\s]{1,12})\s*(?:k-m2|k-m²|kerrosneliömetri)/gi;
+  let m; const t = texts.replace(/\s+/g,' ');
+  while ((m = re.exec(t)) !== null) {
+    const n = parseInt(m[2].replace(/\s/g,''), 10);
+    if (n > 0 && n < 1000000) nums.push({n, capped: !!m[1]});
+  }
+  return nums;
+}
+function expansion(h) {
+  const s = bldStats(h.kaava);
+  const allowed = parseAllowed(h);
+  if (!allowed.length) return null;
+  const a = allowed[0].n;
+  return { allowed: a, capped: allowed[0].capped,
+           existing: s ? s.kerrosala : 0,
+           net: a - (s ? s.kerrosala : 0) };
+}
+function openReport(h) {
+  const s = bldStats(h.kaava), e = expansion(h);
+  const fi = n => (n||0).toLocaleString('fi-FI');
+  const rows = [];
+  rows.push(`<tr><td>Kaava</td><td>${h.kaava} — ${h.nimi||''} (${h.stage||''})</td></tr>`);
+  if (h.quote) rows.push(`<tr><td>Lupaclaus</td><td>${h.quote}</td></tr>`);
+  if (h.plots && h.plots.length) rows.push(`<tr><td>Nimitetyt tontit</td><td>${h.plots.join(', ')}</td></tr>`);
+  if (h.key_info && h.key_info.building_rights) rows.push(`<tr><td>Rakennusoikeus</td><td>${h.key_info.building_rights}</td></tr>`);
+  if (s) rows.push(`<tr><td>Olemassa olevat rakennukset</td><td>${s.count} kpl · ${fi(s.kerrosala)} k-m² kerrosalaa${s.maxfloors?` · max ${s.maxfloors} kerrosta`:''}${s.apartments?` · ${s.apartments} asuntoa`:''}</td></tr>`);
+  if (e) rows.push(`<tr><td>Laajennuspotentiaali</td><td><b>${fi(Math.max(0,e.net))} k-m²</b> (sallittu ${fi(e.allowed)} − olemassa ${fi(e.existing)})${e.capped?' — arvio, kattolauseke mainittu määräyksessä':''}</td></tr>`);
+  rows.push(`<tr><td>Lähteet</td><td>${h.pdf_url?`<a href="${h.pdf_url}">Kaavamääräys-PDF</a>`:'ei julkista asiakirjaa'} · ${h.city==='espoo'?'https://kartat.espoo.fi/decimen/':'https://web.dmcity.fi/kirkkonummi/public/'}</td></tr>`);
+  rows.push(`<tr><td>Huomiot</td><td>Laajennusluku on karkeaan vertailuun: olettaa täyden rakennusoikeuden käytön. Purkukustannuksia, suojeluarvoja ja tonttikohtaisia rajoitteita ei ole arvioitu.</td></tr>`);
+  const html = `<!DOCTYPE html><html lang="fi"><head><meta charset="utf-8"><title>Kaava ${h.kaava} — Plot Finder -raportti</title>
+<style>body{font-family:Georgia,serif;max-width:800px;margin:40px auto;padding:0 20px;color:#1a1917}
+h1{font-size:22px;border-bottom:2px solid #d4702f;padding-bottom:8px}h1 small{color:#666;font-weight:normal}
+table{width:100%;border-collapse:collapse;margin-top:16px;font-size:14px}td{border-bottom:1px solid #ddd;padding:10px 8px;vertical-align:top}
+td:first-child{font-weight:bold;width:220px;color:#555}blockquote{background:#f7f5f2;padding:12px;border-left:3px solid #d4702f;margin:0}
+.brand{font-size:12px;color:#999;margin-top:30px}@media print{.noprint{display:none}}</style></head><body>
+<h1>Kaava ${h.kaava} — ${h.nimi||''}<br><small>Plot Finder · Since Labs · ${new Date().toLocaleDateString('fi-FI')}</small></h1>
+<table>${rows.join('')}</table>
+<div class="brand">Since Labs · Plot Finder — generoitu automaattisesti kunnan avoimesta aineistosta</div>
+<div class="noprint" style="margin-top:20px"><button onclick="window.print()">Tulosta / PDF</button></div>
+</body></html>`;
+  window.open('data:text/html;charset=utf-8,'+encodeURIComponent(html), '_blank');
+}
+
 document.querySelectorAll('.chip').forEach(c => c.onclick = () => {
   c.classList.toggle('on'); show[c.dataset.f] = c.classList.contains('on'); render(); refreshMapLayers();
 });
