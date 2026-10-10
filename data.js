@@ -55,42 +55,7 @@ const DATA=[
   "plots": [
    "kortteli 2034 / tontti 4",
    "kortteli 2064 / tontti 1"
-  ],
-  "score": 78,
-  "verdict": "Vahva",
-  "score_breakdown": {
-   "score": 78,
-   "verdict": "Vahva",
-   "factors": {
-    "allowed": {
-     "value": 7350,
-     "src": "doc_text",
-     "score": 30.0
-    },
-    "scale_fit": {
-     "value": -2603,
-     "score": 0.0
-    },
-    "demolition": {
-     "value": 0.32,
-     "sig_buildings": 4,
-     "sig_km2": 9953,
-     "score": 17.849555990857066
-    },
-    "parcels": {
-     "value": 2,
-     "score": 15.0
-    },
-    "stage": {
-     "value": "Lainvoimainen",
-     "score": 15.0
-    }
-   },
-   "existing_all_km2": 10023,
-   "existing_sig_km2": 9953,
-   "n_buildings": 7,
-   "n_significant": 4
-  }
+  ]
  },
  {
   "city": "kirkkonummi",
@@ -107,42 +72,7 @@ const DATA=[
    "operator_clause": false
   },
   "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/154/attachments/14",
-  "source": "arcgis",
-  "score": 37,
-  "verdict": "Keskinkertainen",
-  "score_breakdown": {
-   "score": 37,
-   "verdict": "Keskinkertainen",
-   "factors": {
-    "allowed": {
-     "value": 460,
-     "src": "doc_text",
-     "score": 3.45
-    },
-    "scale_fit": {
-     "value": -30581,
-     "score": 0.0
-    },
-    "demolition": {
-     "value": 0.25,
-     "sig_buildings": 9,
-     "sig_km2": 31041,
-     "score": 18.341914698657735
-    },
-    "parcels": {
-     "value": 0,
-     "score": 0.0
-    },
-    "stage": {
-     "value": "Lainvoimainen",
-     "score": 15.0
-    }
-   },
-   "existing_all_km2": 32737,
-   "existing_sig_km2": 31041,
-   "n_buildings": 22,
-   "n_significant": 9
-  }
+  "source": "arcgis"
  },
  {
   "city": "kirkkonummi",
@@ -159,42 +89,7 @@ const DATA=[
    "operator_clause": false
   },
   "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/161/attachments/197",
-  "source": "arcgis",
-  "score": 57,
-  "verdict": "Keskinkertainen",
-  "score_breakdown": {
-   "score": 57,
-   "verdict": "Keskinkertainen",
-   "factors": {
-    "allowed": {
-     "value": 3000,
-     "src": "key_info",
-     "score": 22.5
-    },
-    "scale_fit": {
-     "value": -5992,
-     "score": 0.0
-    },
-    "demolition": {
-     "value": 0.06,
-     "sig_buildings": 3,
-     "sig_km2": 8992,
-     "score": 19.590811119287025
-    },
-    "parcels": {
-     "value": 0,
-     "score": 0.0
-    },
-    "stage": {
-     "value": "Lainvoimainen",
-     "score": 15.0
-    }
-   },
-   "existing_all_km2": 37510,
-   "existing_sig_km2": 8992,
-   "n_buildings": 81,
-   "n_significant": 3
-  }
+  "source": "arcgis"
  },
  {
   "city": "kirkkonummi",
@@ -281,42 +176,7 @@ const DATA=[
    "operator_clause": false
   },
   "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/295/attachments/140",
-  "source": "arcgis",
-  "score": 30,
-  "verdict": "Heikko",
-  "score_breakdown": {
-   "score": 30,
-   "verdict": "Heikko",
-   "factors": {
-    "allowed": {
-     "value": 350,
-     "src": "doc_text",
-     "score": 2.625
-    },
-    "scale_fit": {
-     "value": -1886,
-     "score": 0.0
-    },
-    "demolition": {
-     "value": 1.07,
-     "sig_buildings": 1,
-     "sig_km2": 2236,
-     "score": 12.871764439934935
-    },
-    "parcels": {
-     "value": 0,
-     "score": 0.0
-    },
-    "stage": {
-     "value": "Lainvoimainen",
-     "score": 15.0
-    }
-   },
-   "existing_all_km2": 2236,
-   "existing_sig_km2": 2236,
-   "n_buildings": 1,
-   "n_significant": 1
-  }
+  "source": "arcgis"
  },
  {
   "city": "kirkkonummi",
@@ -333,42 +193,7 @@ const DATA=[
    "operator_clause": false
   },
   "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/379/attachments/141",
-  "source": "arcgis",
-  "score": 35,
-  "verdict": "Keskinkertainen",
-  "score_breakdown": {
-   "score": 35,
-   "verdict": "Keskinkertainen",
-   "factors": {
-    "allowed": {
-     "value": null,
-     "src": "none",
-     "score": 0.0
-    },
-    "scale_fit": {
-     "value": null,
-     "score": 0.0
-    },
-    "demolition": {
-     "value": 0.0,
-     "sig_buildings": 0,
-     "sig_km2": 0,
-     "score": 20.0
-    },
-    "parcels": {
-     "value": 0,
-     "score": 0.0
-    },
-    "stage": {
-     "value": "Lainvoimainen",
-     "score": 15.0
-    }
-   },
-   "existing_all_km2": 1515,
-   "existing_sig_km2": 0,
-   "n_buildings": 4,
-   "n_significant": 0
-  }
+  "source": "arcgis"
  },
  {
   "city": "kirkkonummi",
@@ -436,42 +261,7 @@ const DATA=[
    "operator_clause": false
   },
   "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/502/attachments/13",
-  "source": "arcgis",
-  "score": 85,
-  "verdict": "Vahva",
-  "score_breakdown": {
-   "score": 85,
-   "verdict": "Vahva",
-   "factors": {
-    "allowed": {
-     "value": 7000,
-     "src": "doc_text",
-     "score": 30.0
-    },
-    "scale_fit": {
-     "value": 3487,
-     "score": 20.0
-    },
-    "demolition": {
-     "value": 0.05,
-     "sig_buildings": 2,
-     "sig_km2": 3513,
-     "score": 19.6560699249893
-    },
-    "parcels": {
-     "value": 0,
-     "score": 0.0
-    },
-    "stage": {
-     "value": "Lainvoimainen",
-     "score": 15.0
-    }
-   },
-   "existing_all_km2": 15285,
-   "existing_sig_km2": 3513,
-   "n_buildings": 83,
-   "n_significant": 2
-  }
+  "source": "arcgis"
  },
  {
   "city": "kirkkonummi",
@@ -488,42 +278,7 @@ const DATA=[
    "operator_clause": false
   },
   "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/572/attachments/18",
-  "source": "arcgis",
-  "score": 85,
-  "verdict": "Vahva",
-  "score_breakdown": {
-   "score": 85,
-   "verdict": "Vahva",
-   "factors": {
-    "allowed": {
-     "value": 4700,
-     "src": "doc_text",
-     "score": 30.0
-    },
-    "scale_fit": {
-     "value": 4542,
-     "score": 20.0
-    },
-    "demolition": {
-     "value": 0.02,
-     "sig_buildings": 1,
-     "sig_km2": 158,
-     "score": 19.862661278636146
-    },
-    "parcels": {
-     "value": 0,
-     "score": 0.0
-    },
-    "stage": {
-     "value": "Lainvoimainen",
-     "score": 15.0
-    }
-   },
-   "existing_all_km2": 11919,
-   "existing_sig_km2": 158,
-   "n_buildings": 94,
-   "n_significant": 1
-  }
+  "source": "arcgis"
  },
  {
   "city": "kirkkonummi",
@@ -574,42 +329,7 @@ const DATA=[
    "operator_clause": false
   },
   "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/601/attachments/48",
-  "source": "arcgis",
-  "score": 36,
-  "verdict": "Keskinkertainen",
-  "score_breakdown": {
-   "score": 36,
-   "verdict": "Keskinkertainen",
-   "factors": {
-    "allowed": {
-     "value": 100,
-     "src": "doc_text",
-     "score": 0.75
-    },
-    "scale_fit": {
-     "value": 100,
-     "score": 0.0
-    },
-    "demolition": {
-     "value": 0.0,
-     "sig_buildings": 0,
-     "sig_km2": 0,
-     "score": 20.0
-    },
-    "parcels": {
-     "value": 0,
-     "score": 0.0
-    },
-    "stage": {
-     "value": "Lainvoimainen",
-     "score": 15.0
-    }
-   },
-   "existing_all_km2": 0,
-   "existing_sig_km2": 0,
-   "n_buildings": 0,
-   "n_significant": 0
-  }
+  "source": "arcgis"
  },
  {
   "city": "kirkkonummi",
@@ -622,42 +342,7 @@ const DATA=[
   "quote": "Merkintä ah300: Luku osoittaa kuinka monta k-m² rakennuspaikan kerrosalasta saa käyttää vanhusten palvelutilaksi (legendMerkintä käytetty kaavakartassa — vanhusten palvelutilaa varattu kerrosalaa).",
   "class": "candidate",
   "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/441/attachments/78",
-  "source": "ocr",
-  "score": 28,
-  "verdict": "Heikko",
-  "score_breakdown": {
-   "score": 28,
-   "verdict": "Heikko",
-   "factors": {
-    "allowed": {
-     "value": null,
-     "src": "none",
-     "score": 0.0
-    },
-    "scale_fit": {
-     "value": null,
-     "score": 0.0
-    },
-    "demolition": {
-     "value": 0.0,
-     "sig_buildings": 0,
-     "sig_km2": 0,
-     "score": 20.0
-    },
-    "parcels": {
-     "value": 0,
-     "score": 0.0
-    },
-    "stage": {
-     "value": "Lainvoimainen (OCR)",
-     "score": 7.5
-    }
-   },
-   "existing_all_km2": 52733,
-   "existing_sig_km2": 0,
-   "n_buildings": 257,
-   "n_significant": 0
-  }
+  "source": "ocr"
  },
  {
   "city": "kirkkonummi",
@@ -670,42 +355,7 @@ const DATA=[
   "quote": "Alalle saa sijoittaa sosiaali- ja terveydenhuoltoa palvelevia tuetun asumisen palveluja oheistiloineen.",
   "class": "candidate",
   "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/546/attachments/194",
-  "source": "ocr",
-  "score": 29,
-  "verdict": "Heikko",
-  "score_breakdown": {
-   "score": 29,
-   "verdict": "Heikko",
-   "factors": {
-    "allowed": {
-     "value": 150,
-     "src": "doc_text",
-     "score": 1.125
-    },
-    "scale_fit": {
-     "value": 150,
-     "score": 0.0
-    },
-    "demolition": {
-     "value": 0.0,
-     "sig_buildings": 0,
-     "sig_km2": 0,
-     "score": 20.0
-    },
-    "parcels": {
-     "value": 0,
-     "score": 0.0
-    },
-    "stage": {
-     "value": "Lainvoimainen (OCR)",
-     "score": 7.5
-    }
-   },
-   "existing_all_km2": 1156,
-   "existing_sig_km2": 0,
-   "n_buildings": 5,
-   "n_significant": 0
-  }
+  "source": "ocr"
  },
  {
   "city": "kirkkonummi",
@@ -718,42 +368,7 @@ const DATA=[
   "quote": "Korttelin 350 A-korttelialue: Alueelle on sallittu sijoittaa erityisryhmien asuntoja sekä em. toiminnan edellyttämiä työpaikkoja. A-korttelin erityisryhmien asuintiloja varten 1 ap/150 k-m², erityisryhmien kerho- ja yhteistiloja varten 1 ap/100 k-m².",
   "class": "candidate",
   "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/580/attachments/31",
-  "source": "ocr",
-  "score": 29,
-  "verdict": "Heikko",
-  "score_breakdown": {
-   "score": 29,
-   "verdict": "Heikko",
-   "factors": {
-    "allowed": {
-     "value": 250,
-     "src": "quote",
-     "score": 1.875
-    },
-    "scale_fit": {
-     "value": 250,
-     "score": 0.0
-    },
-    "demolition": {
-     "value": 0.0,
-     "sig_buildings": 0,
-     "sig_km2": 0,
-     "score": 20.0
-    },
-    "parcels": {
-     "value": 0,
-     "score": 0.0
-    },
-    "stage": {
-     "value": "Lainvoimainen (OCR)",
-     "score": 7.5
-    }
-   },
-   "existing_all_km2": 6595,
-   "existing_sig_km2": 0,
-   "n_buildings": 17,
-   "n_significant": 0
-  }
+  "source": "ocr"
  },
  {
   "city": "kirkkonummi",
@@ -767,42 +382,7 @@ const DATA=[
   "quote": "AK-korttelialue: asuintilat 1 ap./85 k-m². Vanhustenpalvelu-asumistilat 1 ap./150 k-m². Myymälätilat 1 ap./40 k-m². Julkiset palvelutilat 1 ap./150 k-m².",
   "class": "candidate",
   "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/192/attachments/58",
-  "source": "ocr",
-  "score": 30,
-  "verdict": "Heikko",
-  "score_breakdown": {
-   "score": 30,
-   "verdict": "Heikko",
-   "factors": {
-    "allowed": {
-     "value": 425,
-     "src": "quote",
-     "score": 3.1875
-    },
-    "scale_fit": {
-     "value": -9196,
-     "score": 0.0
-    },
-    "demolition": {
-     "value": 0.07,
-     "sig_buildings": 3,
-     "sig_km2": 9621,
-     "score": 19.52273360454822
-    },
-    "parcels": {
-     "value": 0,
-     "score": 0.0
-    },
-    "stage": {
-     "value": "Lainvoimainen (OCR)",
-     "score": 7.5
-    }
-   },
-   "existing_all_km2": 79417,
-   "existing_sig_km2": 9621,
-   "n_buildings": 219,
-   "n_significant": 3
-  }
+  "source": "ocr"
  },
  {
   "city": "kirkkonummi",
@@ -815,42 +395,7 @@ const DATA=[
   "quote": "Korttelialueen asuinrakennusoikeudesta saa käyttää enintään 3000 k-m² erityisryhmien asumiseen sekä em. toiminnan edellyttämiä oleskelu- ja työtiloja varten. AK-korttelissa erityisryhmien asuintila 1 ap./150 k-m², erityisryhmien kerho- ja yhteistila 1 ap./100 k-m².",
   "class": "candidate",
   "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/206/attachments/183",
-  "source": "ocr",
-  "score": 24,
-  "verdict": "Heikko",
-  "score_breakdown": {
-   "score": 24,
-   "verdict": "Heikko",
-   "factors": {
-    "allowed": {
-     "value": 250,
-     "src": "quote",
-     "score": 1.875
-    },
-    "scale_fit": {
-     "value": -40969,
-     "score": 0.0
-    },
-    "demolition": {
-     "value": 0.85,
-     "sig_buildings": 15,
-     "sig_km2": 41219,
-     "score": 14.342841865750977
-    },
-    "parcels": {
-     "value": 0,
-     "score": 0.0
-    },
-    "stage": {
-     "value": "Lainvoimainen (OCR)",
-     "score": 7.5
-    }
-   },
-   "existing_all_km2": 53137,
-   "existing_sig_km2": 41219,
-   "n_buildings": 67,
-   "n_significant": 15
-  }
+  "source": "ocr"
  },
  {
   "city": "kirkkonummi",
@@ -863,42 +408,7 @@ const DATA=[
   "quote": "Rakennusala, jolle saa rakentaa erityisasuntoja . Koulun, päiväkodin ja/tai erityisasunnot otetaan käyttöön siinä vaiheessa kun kaavaan merkitty koulu ja/tai erityisasunnot otetaan käyttöön.",
   "class": "candidate",
   "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/554/attachments/239",
-  "source": "ocr",
-  "score": 27,
-  "verdict": "Heikko",
-  "score_breakdown": {
-   "score": 27,
-   "verdict": "Heikko",
-   "factors": {
-    "allowed": {
-     "value": null,
-     "src": "none",
-     "score": 0.0
-    },
-    "scale_fit": {
-     "value": null,
-     "score": 0.0
-    },
-    "demolition": {
-     "value": 0.11,
-     "sig_buildings": 3,
-     "sig_km2": 4804,
-     "score": 19.289154210234617
-    },
-    "parcels": {
-     "value": 0,
-     "score": 0.0
-    },
-    "stage": {
-     "value": "Lainvoimainen (OCR)",
-     "score": 7.5
-    }
-   },
-   "existing_all_km2": 26110,
-   "existing_sig_km2": 4804,
-   "n_buildings": 77,
-   "n_significant": 3
-  }
+  "source": "ocr"
  },
  {
   "city": "kirkkonummi",
@@ -911,42 +421,7 @@ const DATA=[
   "quote": "Y-1-yleisten rakennusten korttelialue: Alueelle saa rakentaa asuntoja erityisryhmiä varten.",
   "class": "candidate",
   "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/121/attachments/177",
-  "source": "ocr",
-  "score": 29,
-  "verdict": "Heikko",
-  "score_breakdown": {
-   "score": 29,
-   "verdict": "Heikko",
-   "factors": {
-    "allowed": {
-     "value": 200,
-     "src": "doc_text",
-     "score": 1.5
-    },
-    "scale_fit": {
-     "value": -3379,
-     "score": 0.0
-    },
-    "demolition": {
-     "value": 0.04,
-     "sig_buildings": 2,
-     "sig_km2": 3579,
-     "score": 19.724833224750828
-    },
-    "parcels": {
-     "value": 0,
-     "score": 0.0
-    },
-    "stage": {
-     "value": "Lainvoimainen (OCR)",
-     "score": 7.5
-    }
-   },
-   "existing_all_km2": 42732,
-   "existing_sig_km2": 3579,
-   "n_buildings": 204,
-   "n_significant": 2
-  }
+  "source": "ocr"
  },
  {
   "city": "kirkkonummi",
@@ -962,42 +437,7 @@ const DATA=[
   "class": "candidate",
   "note": "YS-merkintä (sosiaali- ja terveyspalvelujen korttelialue). Löydetty YS-kooditunnistuksella; teksti OCR-lähteestä, osin sumea.",
   "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/59/attachments/20",
-  "source": "ys-zone",
-  "score": 35,
-  "verdict": "Keskinkertainen",
-  "score_breakdown": {
-   "score": 35,
-   "verdict": "Keskinkertainen",
-   "factors": {
-    "allowed": {
-     "value": null,
-     "src": "none",
-     "score": 0.0
-    },
-    "scale_fit": {
-     "value": null,
-     "score": 0.0
-    },
-    "demolition": {
-     "value": 0.0,
-     "sig_buildings": 0,
-     "sig_km2": 0,
-     "score": 20.0
-    },
-    "parcels": {
-     "value": 0,
-     "score": 0.0
-    },
-    "stage": {
-     "value": "Lainvoimainen",
-     "score": 15.0
-    }
-   },
-   "existing_all_km2": 9036,
-   "existing_sig_km2": 0,
-   "n_buildings": 68,
-   "n_significant": 0
-  }
+  "source": "ys-zone"
  },
  {
   "city": "kirkkonummi",
@@ -1013,42 +453,7 @@ const DATA=[
   "class": "candidate",
   "note": "YS-merkintä (sosiaali- ja terveyspalvelujen korttelialue). Löydetty YS-kooditunnistuksella.",
   "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/500/attachments/27",
-  "source": "ys-zone",
-  "score": 35,
-  "verdict": "Keskinkertainen",
-  "score_breakdown": {
-   "score": 35,
-   "verdict": "Keskinkertainen",
-   "factors": {
-    "allowed": {
-     "value": null,
-     "src": "none",
-     "score": 0.0
-    },
-    "scale_fit": {
-     "value": null,
-     "score": 0.0
-    },
-    "demolition": {
-     "value": 0.0,
-     "sig_buildings": 0,
-     "sig_km2": 0,
-     "score": 20.0
-    },
-    "parcels": {
-     "value": 0,
-     "score": 0.0
-    },
-    "stage": {
-     "value": "Lainvoimainen",
-     "score": 15.0
-    }
-   },
-   "existing_all_km2": 19288,
-   "existing_sig_km2": 0,
-   "n_buildings": 111,
-   "n_significant": 0
-  }
+  "source": "ys-zone"
  },
  {
   "city": "kirkkonummi",
@@ -1063,42 +468,7 @@ const DATA=[
   "class": "candidate",
   "note": "YS-merkintä (sosiaali- ja terveyspalvelujen korttelialue) kirkon välittömässä läheisyydessä. Löydetty manuaalitarkistuksessa (Antin tuntema tontti).",
   "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/378/attachments/281",
-  "source": "ys-zone",
-  "score": 36,
-  "verdict": "Keskinkertainen",
-  "score_breakdown": {
-   "score": 36,
-   "verdict": "Keskinkertainen",
-   "factors": {
-    "allowed": {
-     "value": 80,
-     "src": "quote",
-     "score": 0.6
-    },
-    "scale_fit": {
-     "value": 80,
-     "score": 0.0
-    },
-    "demolition": {
-     "value": 0.0,
-     "sig_buildings": 0,
-     "sig_km2": 0,
-     "score": 20.0
-    },
-    "parcels": {
-     "value": 0,
-     "score": 0.0
-    },
-    "stage": {
-     "value": "Lainvoimainen",
-     "score": 15.0
-    }
-   },
-   "existing_all_km2": 618,
-   "existing_sig_km2": 0,
-   "n_buildings": 2,
-   "n_significant": 0
-  }
+  "source": "ys-zone"
  },
  {
   "city": "kirkkonummi",
