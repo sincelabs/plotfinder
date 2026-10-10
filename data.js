@@ -55,7 +55,16 @@ const DATA=[
   "plots": [
    "kortteli 2034 / tontti 4",
    "kortteli 2064 / tontti 1"
-  ]
+  ],
+  "score": 78,
+  "verdict": "Vahva",
+  "score_factors": {
+   "allowed": 30.0,
+   "scale_fit": 0.0,
+   "demolition": 17.849555990857066,
+   "parcels": 15.0,
+   "stage": 15.0
+  }
  },
  {
   "city": "kirkkonummi",
@@ -72,7 +81,16 @@ const DATA=[
    "operator_clause": false
   },
   "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/154/attachments/14",
-  "source": "arcgis"
+  "source": "arcgis",
+  "score": 34,
+  "verdict": "Heikko",
+  "score_factors": {
+   "allowed": 0.0,
+   "scale_fit": 0.0,
+   "demolition": 18.526146398806873,
+   "parcels": 0.0,
+   "stage": 15.0
+  }
  },
  {
   "city": "kirkkonummi",
@@ -89,7 +107,16 @@ const DATA=[
    "operator_clause": false
   },
   "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/161/attachments/197",
-  "source": "arcgis"
+  "source": "arcgis",
+  "score": 65,
+  "verdict": "Vahva",
+  "score_factors": {
+   "allowed": 30.0,
+   "scale_fit": 0.0,
+   "demolition": 19.590811119287025,
+   "parcels": 0.0,
+   "stage": 15.0
+  }
  },
  {
   "city": "kirkkonummi",
@@ -176,7 +203,16 @@ const DATA=[
    "operator_clause": false
   },
   "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/295/attachments/140",
-  "source": "arcgis"
+  "source": "arcgis",
+  "score": 28,
+  "verdict": "Heikko",
+  "score_factors": {
+   "allowed": 0.0,
+   "scale_fit": 0.0,
+   "demolition": 12.871764439934935,
+   "parcels": 0.0,
+   "stage": 15.0
+  }
  },
  {
   "city": "kirkkonummi",
@@ -193,7 +229,16 @@ const DATA=[
    "operator_clause": false
   },
   "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/379/attachments/141",
-  "source": "arcgis"
+  "source": "arcgis",
+  "score": 35,
+  "verdict": "Keskinkertainen",
+  "score_factors": {
+   "allowed": 0.0,
+   "scale_fit": 0.0,
+   "demolition": 20.0,
+   "parcels": 0.0,
+   "stage": 15.0
+  }
  },
  {
   "city": "kirkkonummi",
@@ -261,7 +306,16 @@ const DATA=[
    "operator_clause": false
   },
   "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/502/attachments/13",
-  "source": "arcgis"
+  "source": "arcgis",
+  "score": 85,
+  "verdict": "Vahva",
+  "score_factors": {
+   "allowed": 30.0,
+   "scale_fit": 20.0,
+   "demolition": 19.6560699249893,
+   "parcels": 0.0,
+   "stage": 15.0
+  }
  },
  {
   "city": "kirkkonummi",
@@ -278,7 +332,16 @@ const DATA=[
    "operator_clause": false
   },
   "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/572/attachments/18",
-  "source": "arcgis"
+  "source": "arcgis",
+  "score": 85,
+  "verdict": "Vahva",
+  "score_factors": {
+   "allowed": 30.0,
+   "scale_fit": 20.0,
+   "demolition": 20.0,
+   "parcels": 0.0,
+   "stage": 15.0
+  }
  },
  {
   "city": "kirkkonummi",
@@ -329,7 +392,16 @@ const DATA=[
    "operator_clause": false
   },
   "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/601/attachments/48",
-  "source": "arcgis"
+  "source": "arcgis",
+  "score": 35,
+  "verdict": "Keskinkertainen",
+  "score_factors": {
+   "allowed": 0.0,
+   "scale_fit": 0.0,
+   "demolition": 20.0,
+   "parcels": 0.0,
+   "stage": 15.0
+  }
  },
  {
   "city": "kirkkonummi",
@@ -342,7 +414,16 @@ const DATA=[
   "quote": "Merkintä ah300: Luku osoittaa kuinka monta k-m² rakennuspaikan kerrosalasta saa käyttää vanhusten palvelutilaksi (legendMerkintä käytetty kaavakartassa — vanhusten palvelutilaa varattu kerrosalaa).",
   "class": "candidate",
   "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/441/attachments/78",
-  "source": "ocr"
+  "source": "ocr",
+  "score": 28,
+  "verdict": "Heikko",
+  "score_factors": {
+   "allowed": 0.0,
+   "scale_fit": 0.0,
+   "demolition": 20.0,
+   "parcels": 0.0,
+   "stage": 7.5
+  }
  },
  {
   "city": "kirkkonummi",
@@ -355,7 +436,16 @@ const DATA=[
   "quote": "Alalle saa sijoittaa sosiaali- ja terveydenhuoltoa palvelevia tuetun asumisen palveluja oheistiloineen.",
   "class": "candidate",
   "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/546/attachments/194",
-  "source": "ocr"
+  "source": "ocr",
+  "score": 28,
+  "verdict": "Heikko",
+  "score_factors": {
+   "allowed": 0.0,
+   "scale_fit": 0.0,
+   "demolition": 20.0,
+   "parcels": 0.0,
+   "stage": 7.5
+  }
  },
  {
   "city": "kirkkonummi",
@@ -368,7 +458,16 @@ const DATA=[
   "quote": "Korttelin 350 A-korttelialue: Alueelle on sallittu sijoittaa erityisryhmien asuntoja sekä em. toiminnan edellyttämiä työpaikkoja. A-korttelin erityisryhmien asuintiloja varten 1 ap/150 k-m², erityisryhmien kerho- ja yhteistiloja varten 1 ap/100 k-m².",
   "class": "candidate",
   "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/580/attachments/31",
-  "source": "ocr"
+  "source": "ocr",
+  "score": 28,
+  "verdict": "Heikko",
+  "score_factors": {
+   "allowed": 0.0,
+   "scale_fit": 0.0,
+   "demolition": 20.0,
+   "parcels": 0.0,
+   "stage": 7.5
+  }
  },
  {
   "city": "kirkkonummi",
@@ -382,7 +481,16 @@ const DATA=[
   "quote": "AK-korttelialue: asuintilat 1 ap./85 k-m². Vanhustenpalvelu-asumistilat 1 ap./150 k-m². Myymälätilat 1 ap./40 k-m². Julkiset palvelutilat 1 ap./150 k-m².",
   "class": "candidate",
   "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/192/attachments/58",
-  "source": "ocr"
+  "source": "ocr",
+  "score": 27,
+  "verdict": "Heikko",
+  "score_factors": {
+   "allowed": 0.0,
+   "scale_fit": 0.0,
+   "demolition": 19.52273360454822,
+   "parcels": 0.0,
+   "stage": 7.5
+  }
  },
  {
   "city": "kirkkonummi",
@@ -395,7 +503,16 @@ const DATA=[
   "quote": "Korttelialueen asuinrakennusoikeudesta saa käyttää enintään 3000 k-m² erityisryhmien asumiseen sekä em. toiminnan edellyttämiä oleskelu- ja työtiloja varten. AK-korttelissa erityisryhmien asuintila 1 ap./150 k-m², erityisryhmien kerho- ja yhteistila 1 ap./100 k-m².",
   "class": "candidate",
   "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/206/attachments/183",
-  "source": "ocr"
+  "source": "ocr",
+  "score": 22,
+  "verdict": "Heikko",
+  "score_factors": {
+   "allowed": 0.0,
+   "scale_fit": 0.0,
+   "demolition": 14.342841865750977,
+   "parcels": 0.0,
+   "stage": 7.5
+  }
  },
  {
   "city": "kirkkonummi",
@@ -408,7 +525,16 @@ const DATA=[
   "quote": "Rakennusala, jolle saa rakentaa erityisasuntoja . Koulun, päiväkodin ja/tai erityisasunnot otetaan käyttöön siinä vaiheessa kun kaavaan merkitty koulu ja/tai erityisasunnot otetaan käyttöön.",
   "class": "candidate",
   "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/554/attachments/239",
-  "source": "ocr"
+  "source": "ocr",
+  "score": 27,
+  "verdict": "Heikko",
+  "score_factors": {
+   "allowed": 0.0,
+   "scale_fit": 0.0,
+   "demolition": 19.289154210234617,
+   "parcels": 0.0,
+   "stage": 7.5
+  }
  },
  {
   "city": "kirkkonummi",
@@ -421,7 +547,16 @@ const DATA=[
   "quote": "Y-1-yleisten rakennusten korttelialue: Alueelle saa rakentaa asuntoja erityisryhmiä varten.",
   "class": "candidate",
   "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/121/attachments/177",
-  "source": "ocr"
+  "source": "ocr",
+  "score": 27,
+  "verdict": "Heikko",
+  "score_factors": {
+   "allowed": 0.0,
+   "scale_fit": 0.0,
+   "demolition": 19.724833224750828,
+   "parcels": 0.0,
+   "stage": 7.5
+  }
  },
  {
   "city": "kirkkonummi",
@@ -437,7 +572,16 @@ const DATA=[
   "class": "candidate",
   "note": "YS-merkintä (sosiaali- ja terveyspalvelujen korttelialue). Löydetty YS-kooditunnistuksella; teksti OCR-lähteestä, osin sumea.",
   "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/59/attachments/20",
-  "source": "ys-zone"
+  "source": "ys-zone",
+  "score": 35,
+  "verdict": "Keskinkertainen",
+  "score_factors": {
+   "allowed": 0.0,
+   "scale_fit": 0.0,
+   "demolition": 20.0,
+   "parcels": 0.0,
+   "stage": 15.0
+  }
  },
  {
   "city": "kirkkonummi",
@@ -453,7 +597,16 @@ const DATA=[
   "class": "candidate",
   "note": "YS-merkintä (sosiaali- ja terveyspalvelujen korttelialue). Löydetty YS-kooditunnistuksella.",
   "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/500/attachments/27",
-  "source": "ys-zone"
+  "source": "ys-zone",
+  "score": 35,
+  "verdict": "Keskinkertainen",
+  "score_factors": {
+   "allowed": 0.0,
+   "scale_fit": 0.0,
+   "demolition": 20.0,
+   "parcels": 0.0,
+   "stage": 15.0
+  }
  },
  {
   "city": "kirkkonummi",
@@ -468,7 +621,16 @@ const DATA=[
   "class": "candidate",
   "note": "YS-merkintä (sosiaali- ja terveyspalvelujen korttelialue) kirkon välittömässä läheisyydessä. Löydetty manuaalitarkistuksessa (Antin tuntema tontti).",
   "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/378/attachments/281",
-  "source": "ys-zone"
+  "source": "ys-zone",
+  "score": 35,
+  "verdict": "Keskinkertainen",
+  "score_factors": {
+   "allowed": 0.0,
+   "scale_fit": 0.0,
+   "demolition": 20.0,
+   "parcels": 0.0,
+   "stage": 15.0
+  }
  },
  {
   "city": "kirkkonummi",
@@ -506,7 +668,16 @@ const DATA=[
   "quote": "lle kiin- nusaloilla. Pysäköintiin liittyvät tilat saa toteuttaa köintilaitoksiin ”ma-1” ja ”ma-2”- merkityillä raken- Korttelin kaikki autopaikat tulee toteuttaa pysä- alaa (ysa) -1 ap/400 k-m² hoivapalveluasumisen kerros- alaa -1 ap/75 k-m² toimisto- ja työtilojen kerros- paikkoja 1 ap/ryhmä kerrosalaa.",
   "class": "candidate",
   "pdf_url": "https://kartat.espoo.fi/documents/kaavamaaraykset/410310.pdf",
-  "source": "wfs"
+  "source": "wfs",
+  "score": 23,
+  "verdict": "Heikko",
+  "score_factors": {
+   "allowed": 0.0,
+   "scale_fit": 7.916666666666666,
+   "demolition": 0.0,
+   "parcels": 0.0,
+   "stage": 15.0
+  }
  },
  {
   "city": "espoo",
@@ -520,7 +691,16 @@ const DATA=[
   "quote": "lle tulee järjestää porras- saa sijoittaa toiselle tontille kiinteistöjen välisin toteuttaa annetun kerrosalan lisäksi, ja niitä autopaikkaa (p). Pysäköintiin liittyvät tilat saa toteuttaa enintään 7 palvelutalolle kuuluvaa pysäköintilaitoksessa.Piha-alueelle voidaan AK-korttelialueen autopaikat tulee toteuttaa - 1ap/75 k-m² palvelu- ja työtilojen kerrosalaa. perusteella.",
   "class": "candidate",
   "pdf_url": "https://kartat.espoo.fi/documents/kaavamaaraykset/410309.pdf",
-  "source": "wfs"
+  "source": "wfs",
+  "score": 35,
+  "verdict": "Keskinkertainen",
+  "score_factors": {
+   "allowed": 0.0,
+   "scale_fit": 0.0,
+   "demolition": 20.0,
+   "parcels": 0.0,
+   "stage": 15.0
+  }
  },
  {
   "city": "espoo",
@@ -533,7 +713,16 @@ const DATA=[
   "quote": "ulkotiloissa. olevaan tilaan. Lisäksi tulee osoittaa tilaa lyhyt- paikat on sijoitettava katettuun ja lukittavissa Kaikki vähimmäisvaatimuksen mukaiset pyörä- - Toimistot ja liiketilat 1 pp/200 k-m². palveluasumisessa 0,5 pp/asunto opiskelija-asunnoissa 1,5 pp/asunto, vähintään 2 pp/asunto, yksiöissä ja - Asunnot 1 pp/30 k-m², kuitenkin vähintään seuraavasti: Polkupyöräpaikkoja on rakennettava teistöjen välisin sopimuksin.",
   "class": "candidate",
   "pdf_url": "https://kartat.espoo.fi/documents/kaavamaaraykset/211836.pdf",
-  "source": "wfs"
+  "source": "wfs",
+  "score": 35,
+  "verdict": "Keskinkertainen",
+  "score_factors": {
+   "allowed": 0.0,
+   "scale_fit": 0.0,
+   "demolition": 20.0,
+   "parcels": 0.0,
+   "stage": 15.0
+  }
  },
  {
   "city": "espoo",
@@ -546,7 +735,16 @@ const DATA=[
   "quote": "Sosiaalitoimen ja terveydenhuollon palvelevien rakennusten korttelialue, johon saa sijoittaa vanhusten palvelukeskuksen siihen liittyvine asuntoineen.",
   "class": "candidate",
   "pdf_url": "https://kartat.espoo.fi/documents/kaavamaaraykset/230133.pdf",
-  "source": "wfs"
+  "source": "wfs",
+  "score": 35,
+  "verdict": "Keskinkertainen",
+  "score_factors": {
+   "allowed": 0.0,
+   "scale_fit": 0.0,
+   "demolition": 20.0,
+   "parcels": 0.0,
+   "stage": 15.0
+  }
  },
  {
   "city": "espoo",
@@ -559,7 +757,16 @@ const DATA=[
   "quote": "Sosiaalitointa ja terveydenhuoltoa palvelevien vanhusten palvelukeskuksen siihen liittyvine rakennusten korttelialue, johon saa sijoittaa — EXTRA BYGGRÄTT (1-10 §) för äldre med därtill hörande bostäder (lisärakentamisoikeus ikääntyneille asuntoineen).",
   "class": "candidate",
   "pdf_url": "https://kartat.espoo.fi/documents/kaavamaaraykset/240306.pdf",
-  "source": "wfs"
+  "source": "wfs",
+  "score": 35,
+  "verdict": "Keskinkertainen",
+  "score_factors": {
+   "allowed": 0.0,
+   "scale_fit": 0.0,
+   "demolition": 20.0,
+   "parcels": 0.0,
+   "stage": 15.0
+  }
  },
  {
   "city": "espoo",
@@ -572,7 +779,16 @@ const DATA=[
   "quote": "Till läget riktgivande byggyta. med arabiskt tal angivna byggrätten placeras. laisen luvun osoittama rakennusoikeus sijoittuu. Merkintä osoittaa ne rakennusalat, joille arabia- pk vm so palveluja ja palveluasumista. Rakennusala, jolle saa sijoittaa sosiaalitoimen niihin on helppo pääsy. tamon. Muuntamotilat tulee sijoittaa niin, että Ohjeellinen rakennusala, jolle saa sijoittaa muun- tän huoltorakennuksen.",
   "class": "candidate",
   "pdf_url": "https://kartat.espoo.fi/documents/kaavamaaraykset/130140.pdf",
-  "source": "wfs"
+  "source": "wfs",
+  "score": 35,
+  "verdict": "Keskinkertainen",
+  "score_factors": {
+   "allowed": 0.0,
+   "scale_fit": 0.0,
+   "demolition": 20.0,
+   "parcels": 0.0,
+   "stage": 15.0
+  }
  },
  {
   "city": "espoo",
@@ -585,7 +801,16 @@ const DATA=[
   "quote": "Sosiaali- ja terveydenhuoltoa palvelevien rakennusten korttelialue, johon saa sijoittaa palveluasumista.",
   "class": "candidate",
   "pdf_url": "https://kartat.espoo.fi/documents/kaavamaaraykset/510303.pdf",
-  "source": "wfs-ocr"
+  "source": "wfs-ocr",
+  "score": 35,
+  "verdict": "Keskinkertainen",
+  "score_factors": {
+   "allowed": 0.0,
+   "scale_fit": 0.0,
+   "demolition": 20.0,
+   "parcels": 0.0,
+   "stage": 15.0
+  }
  },
  {
   "city": "espoo",
@@ -598,7 +823,16 @@ const DATA=[
   "quote": "Opetus- ja sosiaalista toimintaa palvelevien rakennusten korttelialue. Korttelialueelle saa sijoittaa myös 500 m² asuntokerrosalaa vanhainkotia varten.",
   "class": "candidate",
   "pdf_url": "https://kartat.espoo.fi/documents/kaavamaaraykset/440101.pdf",
-  "source": "wfs-ocr"
+  "source": "wfs-ocr",
+  "score": 35,
+  "verdict": "Keskinkertainen",
+  "score_factors": {
+   "allowed": 0.0,
+   "scale_fit": 0.0,
+   "demolition": 20.0,
+   "parcels": 0.0,
+   "stage": 15.0
+  }
  },
  {
   "city": "espoo",
@@ -611,7 +845,16 @@ const DATA=[
   "quote": "Tälle kaavamääräysalueelle saa rakentaa myös vanhusten asuinpalvelutalo.",
   "class": "candidate",
   "pdf_url": "https://kartat.espoo.fi/documents/kaavamaaraykset/320901.pdf",
-  "source": "wfs-ocr"
+  "source": "wfs-ocr",
+  "score": 35,
+  "verdict": "Keskinkertainen",
+  "score_factors": {
+   "allowed": 0.0,
+   "scale_fit": 0.0,
+   "demolition": 20.0,
+   "parcels": 0.0,
+   "stage": 15.0
+  }
  },
  {
   "city": "espoo",
