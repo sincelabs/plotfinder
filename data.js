@@ -425,6 +425,53 @@ const DATA=[
  },
  {
   "city": "kirkkonummi",
+  "kaava": "1105",
+  "nimi": "Heikkilä II",
+  "stage": "Lainvoimainen",
+  "keywords": [
+   "YS-korttelialue",
+   "lastenpäivähoito",
+   "lähipalvelu"
+  ],
+  "quote": "Sosiaalista toimintaa palvelevan rakennuksen korttelialue. YS-merkitylle korttelialueelle saa rakentaa alueen asukkaita palvelevia lastenpäivähoito-, lähipalvelu- ja kokoon/tumistiloja.",
+  "class": "candidate",
+  "note": "YS-merkintä (sosiaali- ja terveyspalvelujen korttelialue). Löydetty YS-kooditunnistuksella; teksti OCR-lähteestä, osin sumea.",
+  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/59/attachments/20",
+  "source": "ys-zone"
+ },
+ {
+  "city": "kirkkonummi",
+  "kaava": "918",
+  "nimi": "Kuusala II",
+  "stage": "Lainvoimainen",
+  "keywords": [
+   "YS-korttelialue",
+   "lastenpäivähoito",
+   "lähipalvelu"
+  ],
+  "quote": "Sosiaalista toimintaa palvelevan rakennuksen korttelialue. YS-merkitylle korttelialueelle saa rakentaa alueen asukkaita palvelevia lastenpäivähoito-, lähipalvelu- ja kokoontumistiloja.",
+  "class": "candidate",
+  "note": "YS-merkintä (sosiaali- ja terveyspalvelujen korttelialue). Löydetty YS-kooditunnistuksella.",
+  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/500/attachments/27",
+  "source": "ys-zone"
+ },
+ {
+  "city": "kirkkonummi",
+  "kaava": "3061",
+  "nimi": "Keskustan terveysasema",
+  "stage": "Lainvoimainen",
+  "keywords": [
+   "YS-korttelialue",
+   "terveysasema"
+  ],
+  "quote": "Sosiaali- ja terveydenhuoltoa palvelevien rakennusten korttelialue (YS). Palvelurakennusten korttelialue, jolla 1 ap./80 k-m2.",
+  "class": "candidate",
+  "note": "YS-merkintä (sosiaali- ja terveyspalvelujen korttelialue) kirkon välittömässä läheisyydessä. Löydetty manuaalitarkistuksessa (Antin tuntema tontti).",
+  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/378/attachments/281",
+  "source": "ys-zone"
+ },
+ {
+  "city": "kirkkonummi",
   "kaava": "2882",
   "nimi": "Asemakaava 2882",
   "stage": "Lainvoimainen",
@@ -579,27 +626,4 @@ const DATA=[
   "pdf_url": "https://kartat.espoo.fi/documents/kaavamaaraykset/212308.pdf",
   "source": "wfs-ocr"
  }
-,
-{
- "city": "kirkkonummi",
- "kaava": "3061",
- "nimi": "Keskustan terveysasema",
- "stage": "Lainvoimainen",
- "keywords": [
-  "YS-korttelialue",
-  "palvelurakennusten korttelialue"
- ],
- "quote": "Palvelurakennusten korttelialue (YS): Sosiaalitoimen ja terveydenhuollon palvelevien rakennusten korttelialue. Keskustan terveysasema, kortteli 101 — YS-korttelialue: 1 ap./80 k-m2.",
- "class": "candidate",
- "key_info": {
-  "permission": "zone-based",
-  "plots": [],
-  "building_rights": "1 ap./80 k-m2 (YS-korttelialue)",
-  "operator_clause": null
- },
- "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/378/attachments/281",
- "note": "Löytyi kirkkoalueen manuaalitarkistuksessa (Antin testi). YS-merkintä = yleisten palvelurakennusten korttelialue (sosiaali- ja terveyspalvelut) — Antin Y-koodiperhettä, jota avainsanahaku ei kata. OCR-teksti, sanat yhdistyneitä.",
- "quote_verified": "hand",
- "source_type": "ocr"
-}
 ];
