@@ -68,6 +68,7 @@
   .pop-title { font-weight:700; margin-bottom:4px; }
   .pop-links a { color:#c2571d; display:block; text-decoration:none; margin-top:2px; }
   .plot-label { font-size:11px; color:var(--dim); background:rgba(212,112,47,.12); padding:2px 8px; border-radius:8px; display:inline-block; margin-top:6px; }
+  .bld-chip { font-size:11px; color:#9fb6cc; background:rgba(96,125,155,.14); border:1px solid rgba(96,125,155,.35); padding:2px 10px; border-radius:8px; display:inline-block; margin-top:6px; margin-right:6px; }
   footer { text-align:center; color:var(--dim); font-size:12px; padding:20px; border-top:1px solid var(--line); }
   footer b { color:var(--accent); font-weight:600; }
   .osm-dark { filter: invert(1) hue-rotate(180deg) brightness(0.85) contrast(0.9) saturate(0.6); }
@@ -134,6 +135,7 @@ function render() {
       </div>
       <div class="kws">${h.keywords.map(k=>`<span class="kw">${k}</span>`).join('')}</div>
       ${(typeof PLOTS!=='undefined'&&PLOTS&&h.plots&&h.plots.length)?`<div class="plot-label">📍 Exact plots resolved: ${(PLOTS.filter(p=>h.plots.some(q=>{const m=q.match(/kortteli\s+(\d+)\s*\/\s*tontti\s+(\d+)/); return m && p.kortteli===+m[1] && p.tontti===+m[2];})).map(p=>p.label).join(', ')||h.plots.join(', '))}</div>`:''}
+      ${bldChip(h)}
       ${h.class==='missing_doc'&&h.note?`<div class="plot-label" style="color:#facc15">⚠</div><div class="plot-label">${h.note}</div>`:''}
       ${keyinfo(h)}
       <blockquote>${hl(h.quote, term)}</blockquote>
@@ -167,13 +169,27 @@ function hl(text, term) {
   if (!term) return t;
   return t.replace(new RegExp('('+term.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','gi'), '<mark>$1</mark>');
 }
+function bldStats(kaava) {
+  if (typeof BUILDINGS === 'undefined') return null;
+  const bs = BUILDINGS.filter(b => b.kaava === String(kaava));
+  if (!bs.length) return null;
+  return { count: bs.length,
+           kerrosala: bs.reduce((s,b)=>s+(b.kerrosala||0),0),
+           maxfloors: Math.max(0,...bs.map(b=>b.floors||0)),
+           apartments: bs.reduce((s,b)=>s+(b.apartments||0),0) };
+}
+function bldChip(h) {
+  const s = bldStats(h.kaava);
+  if (!s) return '';
+  return `<span class="bld-chip">🏗 ${s.count} existing building${s.count>1?'s':''} · ${s.kerrosala.toLocaleString('fi-FI')} k-m² floor area${s.maxfloors?` · up to ${s.maxfloors} floors`:''}${s.apartments?` · ${s.apartments} apartments`:''} — demolition may be required</span>`;
+}
 document.querySelectorAll('.chip').forEach(c => c.onclick = () => {
   c.classList.toggle('on'); show[c.dataset.f] = c.classList.contains('on'); render(); refreshMapLayers();
 });
 q.oninput = () => { render(); refreshMapLayers(); }; citySel.onchange = () => { render(); refreshMapLayers(); }; render();
 
 // ---- Map tab ----
-let mapInited = false, map, planLayer, plotLayer;
+let mapInited = false, map, planLayer, plotLayer, bldLayer, BUILDINGS = [];
 function mapHits() {  // same filter chain as the list view
   const term = q.value.toLowerCase();
   const city = currentCity();
@@ -197,7 +213,13 @@ function initMap() {
     attribution:'&copy; OpenStreetMap contributors', maxZoom:19, className:'osm-dark'}).addTo(map);
   planLayer = L.layerGroup().addTo(map);
   plotLayer = L.layerGroup().addTo(map);
-  L.control.layers({}, {'Kaava-alueet (candidates)': planLayer, 'Tontit (exact plots)': plotLayer}, {collapsed:false}).addTo(map);
+  bldLayer = L.layerGroup();
+  L.control.layers({}, {'Kaava-alueet (candidates)': planLayer, 'Tontit (exact plots)': plotLayer, 'Rakennukset (existing buildings)': bldLayer}, {collapsed:false}).addTo(map);
+  // load buildings with no-store so stale cache can't hide them
+  fetch('buildings_data.json', {cache:'no-store'})
+    .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+    .then(d => { BUILDINGS = d; refreshMapLayers(); })
+    .catch(e => console.warn('buildings_data.json unavailable:', e));
   mapInited = true;
   refreshMapLayers();
 }
@@ -205,6 +227,7 @@ function refreshMapLayers() {
   if (!mapInited) return;
   planLayer.clearLayers();
   plotLayer.clearLayers();
+  bldLayer.clearLayers();
   const hits = mapHits();
   const byKaava = {};
   hits.forEach(h => { (byKaava[h.kaava] = byKaava[h.kaava] || []).push(h); });
@@ -234,6 +257,17 @@ function refreshMapLayers() {
       ${pl.address ? `<div>Osoite: ${pl.address}</div>` : ''}
       ${pl.kaava ? `<div style="margin-top:4px">Kaava: <a href="#" onclick="switchToHit('${pl.kaava}');return false">${pl.kaava}</a></div>` : ''}
       ${pl.note ? `<div style="margin-top:4px;color:#98938c;font-style:italic;max-width:260px">${pl.note}</div>` : ''}`);
+  });
+  // existing buildings (blue-gray footprints, only for plans currently shown)
+  const kaavaSet = new Set(hits.map(h => String(h.kaava)));
+  BUILDINGS.forEach(b => {
+    if (!b.ring || !kaavaSet.has(b.kaava)) return;
+    const poly = L.polygon(b.ring.map(pt => [pt[1], pt[0]]), {
+      color:'#607d9b', weight:1.5, fillColor:'#607d9b', fillOpacity:0.35}).addTo(bldLayer);
+    poly.bindPopup(`<div class="pop-title">Rakennus ${b.address || ''}</div>
+      ${b.kerrosala ? `<div>Kerrosala: ${b.kerrosala} k-m²</div>` : ''}
+      ${b.floors ? `<div>Kerroksia: ${b.floors}</div>` : ''}
+      <div style="margin-top:4px;color:#98938c;font-style:italic">Kaava ${b.kaava} — existing building; demolition required before new construction</div>`);
   });
 }
 document.querySelectorAll('.tab').forEach(t => t.onclick = () => {
