@@ -231,7 +231,12 @@ function openReport(h) {
   if (h.plots && h.plots.length) rows.push(`<tr><td>Nimitetyt tontit</td><td>${h.plots.join(', ')}</td></tr>`);
   if (h.key_info && h.key_info.building_rights) rows.push(`<tr><td>Rakennusoikeus</td><td>${h.key_info.building_rights}</td></tr>`);
   if (s) rows.push(`<tr><td>Olemassa olevat rakennukset</td><td>${s.count} kpl · ${fi(s.kerrosala)} k-m² kerrosalaa${s.maxfloors?` · max ${s.maxfloors} kerrosta`:''}${s.apartments?` · ${s.apartments} asuntoa`:''}</td></tr>`);
-  if (e) rows.push(`<tr><td>Laajennuspotentiaali</td><td><b>${fi(Math.max(0,e.net))} k-m²</b> (sallittu ${fi(e.allowed)} − olemassa ${fi(e.existing)})${e.capped?' — arvio, kattolauseke mainittu määräyksessä':''}</td></tr>`);
+  if (e) {
+    const verdict = e.net <= 0
+      ? `ei selvää lisäpotentiaalia ilman purkuja (rajoite koskee erityisryhmien asumista; olemassa oleva kerrosala kattaa kaikki käyttötarkoitukset)`
+      : `<b>${fi(e.net)} k-m²</b> (sallittu ${fi(e.allowed)} − olemassa ${fi(e.existing)}) — karkea arvio: olemassa oleva kattaa kaikki käyttötarkoitukset`;
+    rows.push(`<tr><td>Laajennuspotentiaali</td><td>${verdict}${e.capped?' · kattolauseke mainittu määräyksessä':''}</td></tr>`);
+  }
   rows.push(`<tr><td>Lähteet</td><td>${h.pdf_url?`<a href="${h.pdf_url}">Kaavamääräys-PDF</a>`:'ei julkista asiakirjaa'} · ${h.city==='espoo'?'https://kartat.espoo.fi/decimen/':'https://web.dmcity.fi/kirkkonummi/public/'}</td></tr>`);
   rows.push(`<tr><td>Huomiot</td><td>Laajennusluku on karkeaan vertailuun: olettaa täyden rakennusoikeuden käytön. Purkukustannuksia, suojeluarvoja ja tonttikohtaisia rajoitteita ei ole arvioitu.</td></tr>`);
   const html = `<!DOCTYPE html><html lang="fi"><head><meta charset="utf-8"><title>Kaava ${h.kaava} — Plot Finder -raportti</title>
